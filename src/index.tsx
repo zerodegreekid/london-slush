@@ -30,7 +30,7 @@ app.get('/', (c) => {
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
             <a href="#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
-            <a href="tel:+919999999999" class="bg-brand-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition font-semibold">
+            <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition font-semibold">
               <i class="fas fa-phone mr-2"></i>Call Now
             </a>
           </div>
@@ -389,8 +389,8 @@ app.get('/', (c) => {
             <a href="#" class="bg-white text-brand-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition inline-block">
               <i class="fas fa-download mr-2"></i>Download Investment Guide
             </a>
-            <a href="tel:+919999999999" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition inline-block">
-              <i class="fas fa-phone mr-2"></i>Call: +91 99999 99999
+            <a href="tel:8006999805" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition inline-block">
+              <i class="fas fa-phone mr-2"></i>Call: 800-699-9805
             </a>
           </div>
         </div>
@@ -432,9 +432,9 @@ app.get('/', (c) => {
             <div>
               <h4 class="font-bold text-lg mb-4">Contact</h4>
               <ul class="space-y-2 text-gray-400">
-                <li><i class="fas fa-phone mr-2"></i>+91 99999 99999</li>
-                <li><i class="fas fa-envelope mr-2"></i>partner@londonslush.com</li>
-                <li><i class="fas fa-map-marker-alt mr-2"></i>Pan India Coverage</li>
+                <li><i class="fas fa-phone mr-2"></i>800-699-9805</li>
+                <li><i class="fas fa-envelope mr-2"></i>info@londonslush.com</li>
+                <li><i class="fas fa-map-marker-alt mr-2"></i>Dravya Roots Pvt Ltd</li>
               </ul>
               <div class="flex space-x-4 mt-4">
                 <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>

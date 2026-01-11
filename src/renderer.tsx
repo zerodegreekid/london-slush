@@ -108,7 +108,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
         {children}
         
         {/* WhatsApp Floating Button */}
-        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush%20partnership" 
+        <a href="https://wa.me/918006999805?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush%20partnership" 
            target="_blank"
            class="sticky-cta bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center w-16 h-16">
           <i class="fab fa-whatsapp text-3xl"></i>
