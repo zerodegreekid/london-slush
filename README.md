@@ -20,21 +20,24 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 
 ---
 
-## ✅ Completed Features (LATEST UPDATE)
+## ✅ Completed Features (LATEST UPDATE - Jan 11, 2026)
 
 ### 🏠 Homepage
 - **3-Choice Intent Gateway** - Role-based entry paths for self-segmentation
-- **Updated investment amounts** - Accurate ₹8-10L for franchise, ₹15L for distributor
+- **Updated investment amounts** - Accurate ₹10-15L for franchise, ₹15L for distributor
 - **Attention-grabbing images** - Fabulous juicy slush, dance with slush photos
-- **Outcome-driven hero section** with trust anchors
-- **Social proof** (150+ partners, 45+ cities)
+- **Outcome-driven hero section** with trust anchors:
+  - ✅ Refundable* (Subject to conditions)
+  - ✅ 60-70% Margins* (Subject to conditions)
+  - ✅ "All Opportunities Are Filling Fast, Act Now!" scarcity messaging
+- **Social proof** (150+ partners)
 - **Financial transparency** (margins, ROI timelines)
 - **Partner testimonials** with 5-star ratings
 - **Strong CTAs** with multiple contact options
 - **Floating WhatsApp button** for instant engagement
 
 ### 🏪 Franchise Funnel (`/franchise`)
-- **Updated investment range: ₹8L-₹10L*** (with disclaimer)
+- **Updated investment range: ₹10L-₹15L*** (with disclaimer)
 - **Financial transparency block** with investment breakdown
 - **Revenue scenarios table** (low/average/high footfall)
 - **Risk reversal section** (refundable security*, no hidden fees)
@@ -58,6 +61,17 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 
 ### 🚚 Distributor Funnel (`/distributor`)
 - **Updated investment: Up to ₹15L* (Refundable)**
+- **"Investor" term removed** - now positioned as Distributor opportunity
+- **Multi-product outlet showcase:**
+  - 🥤 London Slush (15+ Flavors)
+  - 🌽 Sweet Corn (Premium Quality)
+  - 🍔 Burgers (Veg & Non-Veg)
+  - 🍦 More Options (Shakes & Snacks)
+- **Visual location types:**
+  - Water Parks & Entertainment Zones
+  - Food Courts & Malls
+  - Exhibitions & Events
+- **12-18 months payback** emphasized (replaced "5-10 cities")
 - **Premium positioning** with exclusivity messaging
 - **Distribution business model** explanation
 - **Revenue streams breakdown** (4 sources)
