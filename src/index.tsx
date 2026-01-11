@@ -355,7 +355,7 @@ app.get('/', (c) => {
                 <div class="flex items-start space-x-3">
                   <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
                   <div>
-                    <p class="font-semibold text-lg">Refundable Security</p>
+                    <p class="font-semibold text-lg">Refundable* (Subject to conditions)</p>
                     <p class="text-blue-100 text-sm">Low-risk investment model</p>
                   </div>
                 </div>
@@ -376,25 +376,16 @@ app.get('/', (c) => {
                 <div class="flex items-start space-x-3">
                   <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
                   <div>
-                    <p class="font-semibold text-lg">60-70% Margins</p>
+                    <p class="font-semibold text-lg">60-70% Margins* (Subject to conditions)</p>
                     <p class="text-blue-100 text-sm">Industry-leading profitability</p>
                   </div>
                 </div>
               </div>
               
               {/* Social Proof Numbers */}
-              <div class="flex space-x-8 pt-4 border-t border-white/20">
-                <div>
-                  <p class="text-3xl font-bold text-yellow-300">150+</p>
-                  <p class="text-blue-100 text-sm">Active Outlets</p>
-                </div>
-                <div>
-                  <p class="text-3xl font-bold text-yellow-300">45+</p>
-                  <p class="text-blue-100 text-sm">Cities Covered</p>
-                </div>
-                <div>
-                  <p class="text-3xl font-bold text-yellow-300">12-18</p>
-                  <p class="text-blue-100 text-sm">Months ROI</p>
+              <div class="flex justify-center pt-4 border-t border-white/20">
+                <div class="bg-yellow-400 text-brand-blue px-8 py-4 rounded-2xl shadow-2xl">
+                  <p class="text-2xl font-bold text-center">⚡ All Opportunities Are Filling Fast, Act Now!</p>
                 </div>
               </div>
             </div>
@@ -449,7 +440,7 @@ app.get('/', (c) => {
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: ₹8L - ₹10L*</span>
+                    <span>Investment: ₹10-15 Lakh*</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
@@ -477,25 +468,25 @@ app.get('/', (c) => {
                     <i class="fas fa-coffee text-3xl"></i>
                   </div>
                   <h3 class="text-2xl font-bold text-gray-800 mb-2">I Own a Café / Outlet</h3>
-                  <p class="text-gray-600 mb-4">Add high-margin beverages without extra staff</p>
+                  <p class="text-gray-600 mb-4">Choose from 2 flexible models</p>
                 </div>
                 
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: ₹2.5L - ₹5L</span>
+                    <span>Model 1: ₹0 Investment (Profit Sharing)</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-sm">
+                    <i class="fas fa-check text-green-600"></i>
+                    <span>Model 2: Free Lookout Plan (3 months)</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-sm">
+                    <i class="fas fa-check text-green-600"></i>
+                    <span>Pay only for syrup in lookout plan</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
                     <span>30-40% revenue boost</span>
-                  </div>
-                  <div class="flex items-center space-x-2 text-sm">
-                    <i class="fas fa-check text-green-600"></i>
-                    <span>Automated machines</span>
-                  </div>
-                  <div class="flex items-center space-x-2 text-sm">
-                    <i class="fas fa-check text-green-600"></i>
-                    <span>Seasonal demand advantage</span>
                   </div>
                 </div>
                 
@@ -513,26 +504,26 @@ app.get('/', (c) => {
                   <div class="bg-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mb-4">
                     <i class="fas fa-truck text-3xl"></i>
                   </div>
-                  <h3 class="text-2xl font-bold text-gray-800 mb-2">I'm a Distributor / Investor</h3>
-                  <p class="text-gray-600 mb-4">Territory rights and volume-based partnerships</p>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">I'm a Distributor</h3>
+                  <p class="text-gray-600 mb-4">Multi-product outlet opportunity</p>
                 </div>
                 
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: Up to ₹15L* (Refundable)</span>
+                    <span>Investment: ₹15 Lakh</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Exclusive territories</span>
+                    <span>Slush + Sweet Corn + Burgers & More</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Volume-based margins</span>
+                    <span>Payback in 12-18 months</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Expansion roadmap support</span>
+                    <span>Complete profitable outlet setup</span>
                   </div>
                 </div>
                 
@@ -1773,9 +1764,9 @@ app.get('/distributor', (c) => {
               </div>
               
               <div class="bg-purple-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-purple-600 mb-2">5-10</div>
-                <p class="text-lg font-semibold text-gray-800 mb-2">Cities per Territory</p>
-                <p class="text-sm text-gray-600">Exclusive rights in your region</p>
+                <div class="text-5xl font-bold text-purple-600 mb-2">12-18</div>
+                <p class="text-lg font-semibold text-gray-800 mb-2">Months Payback</p>
+                <p class="text-sm text-gray-600">Complete profitable outlet setup</p>
               </div>
             </div>
 
@@ -1850,6 +1841,90 @@ app.get('/distributor', (c) => {
                   </ul>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Multi-Product Outlet Opportunities */}
+      <section class="py-16 bg-gradient-to-br from-orange-50 to-yellow-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Complete Profitable Outlet Setup
+              </h2>
+              <p class="text-xl text-gray-600">
+                Slush + Sweet Corn + Burgers & More - All under one roof!
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+              <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition duration-300">
+                <img src="/dance-with-slush.jpg" alt="Water Parks & Entertainment Zones" class="w-full h-56 object-cover" />
+                <div class="p-6">
+                  <div class="flex items-center space-x-2 mb-3">
+                    <i class="fas fa-water text-blue-500 text-2xl"></i>
+                    <h3 class="font-bold text-lg text-gray-800">Water Parks</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">High footfall entertainment zones perfect for refreshing beverages</p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition duration-300">
+                <img src="/fabulous-juicy-slush.jpg" alt="Food Courts & Malls" class="w-full h-56 object-cover" />
+                <div class="p-6">
+                  <div class="flex items-center space-x-2 mb-3">
+                    <i class="fas fa-shopping-bag text-purple-500 text-2xl"></i>
+                    <h3 class="font-bold text-lg text-gray-800">Food Courts</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Shopping malls and food courts with consistent daily traffic</p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition duration-300">
+                <img src="/slush-varieties.jpg" alt="Exhibitions & Events" class="w-full h-56 object-cover" />
+                <div class="p-6">
+                  <div class="flex items-center space-x-2 mb-3">
+                    <i class="fas fa-calendar-alt text-red-500 text-2xl"></i>
+                    <h3 class="font-bold text-lg text-gray-800">Exhibitions</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Trade shows, exhibitions, and large-scale events with premium sales</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-3xl p-8 md:p-12 text-center">
+              <h3 class="text-2xl md:text-3xl font-bold mb-4">Complete Outlet Product Mix</h3>
+              <div class="grid md:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <i class="fas fa-glass-whiskey text-4xl mb-2"></i>
+                  <p class="font-semibold">London Slush</p>
+                  <p class="text-sm opacity-90">15+ Flavors</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <i class="fas fa-corn text-4xl mb-2"></i>
+                  <p class="font-semibold">Sweet Corn</p>
+                  <p class="text-sm opacity-90">Premium Quality</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <i class="fas fa-hamburger text-4xl mb-2"></i>
+                  <p class="font-semibold">Burgers</p>
+                  <p class="text-sm opacity-90">Veg & Non-Veg</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <i class="fas fa-ice-cream text-4xl mb-2"></i>
+                  <p class="font-semibold">More Options</p>
+                  <p class="text-sm opacity-90">Shakes & Snacks</p>
+                </div>
+              </div>
+              <p class="text-xl mb-6">
+                <strong class="text-yellow-300">₹15 Lakh Refundable Investment*</strong> | 
+                <strong class="text-yellow-300 ml-2">12-18 Months Payback</strong>
+              </p>
+              <a href="#distributor-form" class="inline-block bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-xl">
+                <i class="fas fa-rocket mr-2"></i>Start Your Profitable Outlet Journey
+              </a>
             </div>
           </div>
         </div>
