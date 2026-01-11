@@ -402,11 +402,11 @@ app.get('/', (c) => {
             {/* Right: Product Images */}
             <div class="relative">
               <div class="grid grid-cols-2 gap-4">
-                <img src="/slush-pink-grape.jpg" alt="London Slush Pink" class="rounded-2xl shadow-2xl w-full h-64 object-cover" />
-                <img src="/slush-blue-drinks.jpg" alt="London Slush Blue" class="rounded-2xl shadow-2xl w-full h-64 object-cover mt-8" />
+                <img src="/fabulous-juicy-slush.jpg" alt="London Slush Fabulous" class="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-105 transition duration-300" />
+                <img src="/dance-with-slush.jpg" alt="Dance with Slush" class="rounded-2xl shadow-2xl w-full h-64 object-cover mt-8 hover:scale-105 transition duration-300" />
               </div>
               <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-brand-blue px-6 py-3 rounded-full shadow-xl font-bold pulse-animation">
-                <i class="fas fa-fire mr-2"></i>Hot Selling
+                <i class="fas fa-fire mr-2"></i>Kids Love It!
               </div>
             </div>
           </div>
@@ -449,7 +449,7 @@ app.get('/', (c) => {
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: ₹8L - ₹25L</span>
+                    <span>Investment: ₹8L - ₹10L*</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
@@ -520,7 +520,7 @@ app.get('/', (c) => {
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: ₹50L+</span>
+                    <span>Investment: Up to ₹15L* (Refundable)</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
@@ -799,7 +799,7 @@ app.get('/franchise', (c) => {
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
               <div class="bg-blue-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-brand-blue mb-2">₹8L - ₹25L</div>
+                <div class="text-5xl font-bold text-brand-blue mb-2">₹8L - ₹10L*</div>
                 <p class="text-lg font-semibold text-gray-800 mb-2">Total Investment</p>
                 <p class="text-sm text-gray-600">Including machine, setup, initial inventory & branding</p>
               </div>
@@ -1049,8 +1049,7 @@ app.get('/franchise', (c) => {
                   <option value="">Select investment capacity</option>
                   <option value="8L-12L">₹8L - ₹12L</option>
                   <option value="12L-18L">₹12L - ₹18L</option>
-                  <option value="18L-25L">₹18L - ₹25L</option>
-                  <option value="25L+">₹25L+</option>
+                  <option value="10L+">₹10L+</option>
                 </select>
               </div>
 
@@ -1120,6 +1119,22 @@ app.get('/franchise', (c) => {
         </div>
       </section>
 
+      {/* Disclaimer Section */}
+      <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
+            <p class="mb-2">
+              <strong>* Terms & Conditions Apply:</strong> Refundable security is subject to agreement terms and conditions. 
+              Investment amounts (₹8L-₹10L) are indicative and may vary based on location, outlet size, and customization requirements.
+            </p>
+            <p>
+              ROI timelines are estimates based on average partner performance and may vary. 
+              Actual results depend on location, operations, and market conditions.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
@@ -1132,7 +1147,7 @@ app.get('/franchise', (c) => {
         </div>
       </footer>
     </>,
-    { title: 'London Slush Franchise - Start Your Own Beverage Business | ₹8L-₹25L Investment' }
+    { title: 'London Slush Franchise - Start Your Own Beverage Business | ₹8L-₹10L Investment' }
   )
 })
 
@@ -1219,13 +1234,193 @@ app.get('/retail', (c) => {
         </div>
       </section>
 
+      {/* Choose Your Partnership Model */}
+      <section class="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
+              Choose Your <span class="text-purple-600">Partnership Model</span>
+            </h2>
+            <p class="text-xl text-gray-600 text-center mb-12">
+              Select the model that best fits your business needs
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+              {/* Partnership Model */}
+              <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-purple-300">
+                <div class="bg-gradient-to-br from-purple-600 to-pink-600 p-8 text-white text-center">
+                  <div class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full inline-block font-bold mb-4">
+                    RECOMMENDED
+                  </div>
+                  <i class="fas fa-handshake text-6xl mb-4 block"></i>
+                  <h3 class="text-3xl font-bold mb-2">Partnership Model</h3>
+                  <p class="text-xl opacity-90">Profit Sharing Basis</p>
+                </div>
+                
+                <div class="p-8">
+                  <div class="text-center mb-6">
+                    <div class="text-5xl font-bold text-green-600 mb-2">₹0</div>
+                    <p class="text-lg font-semibold text-gray-800">Upfront Cost</p>
+                  </div>
+                  
+                  <div class="space-y-4 mb-8">
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-green-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Zero Investment</p>
+                        <p class="text-sm text-gray-600">We provide machine & setup at no cost</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-green-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Profit Sharing</p>
+                        <p class="text-sm text-gray-600">Agreed percentage of net revenue</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-green-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">We Supply Everything</p>
+                        <p class="text-sm text-gray-600">Machine, syrup, cups, straws - all included</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-green-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Maintenance Included</p>
+                        <p class="text-sm text-gray-600">Free servicing & repairs</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-green-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Flexible Terms</p>
+                        <p class="text-sm text-gray-600">Monthly profit settlement</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-purple-50 rounded-2xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">How It Works:</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                      <li>• We install machine at your outlet</li>
+                      <li>• You provide space & electricity</li>
+                      <li>• Customers pay you for slushies</li>
+                      <li>• We share profits monthly (% TBD)</li>
+                    </ul>
+                  </div>
+                  
+                  <a href="#retail-form" class="block w-full bg-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-purple-700 transition shadow-xl text-center">
+                    Apply for Partnership
+                  </a>
+                </div>
+              </div>
+              
+              {/* Individual Model */}
+              <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-blue-300">
+                <div class="bg-gradient-to-br from-blue-600 to-cyan-600 p-8 text-white text-center">
+                  <i class="fas fa-user-tie text-6xl mb-4 block"></i>
+                  <h3 class="text-3xl font-bold mb-2">Individual Model</h3>
+                  <p class="text-xl opacity-90">Purchase Raw Materials</p>
+                </div>
+                
+                <div class="p-8">
+                  <div class="text-center mb-6">
+                    <div class="text-5xl font-bold text-blue-600 mb-2">₹2.5L - ₹5L</div>
+                    <p class="text-lg font-semibold text-gray-800">Machine Investment</p>
+                  </div>
+                  
+                  <div class="space-y-4 mb-8">
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Own the Machine</p>
+                        <p class="text-sm text-gray-600">Full ownership after payment</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Buy Raw Materials</p>
+                        <p class="text-sm text-gray-600">Purchase syrups & supplies monthly</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">3-Month Lookout Period</p>
+                        <p class="text-sm text-gray-600">Trial period to assess viability</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Keep All Profits</p>
+                        <p class="text-sm text-gray-600">No revenue sharing</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                      <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold text-gray-800">Training & Support</p>
+                        <p class="text-sm text-gray-600">Operational guidance included</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-blue-50 rounded-2xl p-6 mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">How It Works:</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                      <li>• Purchase machine upfront</li>
+                      <li>• Buy syrups from us monthly</li>
+                      <li>• 3-month trial to evaluate</li>
+                      <li>• 100% profits are yours</li>
+                    </ul>
+                  </div>
+                  
+                  <a href="#retail-form" class="block w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl text-center">
+                    Apply for Individual
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-yellow-50 border-2 border-yellow-400 rounded-2xl p-6 mt-12">
+              <div class="flex items-start space-x-4">
+                <i class="fas fa-info-circle text-yellow-600 text-3xl"></i>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-2 text-lg">Not Sure Which Model to Choose?</h4>
+                  <p class="text-gray-700 mb-4">
+                    No problem! Our team will help you select the best model based on your outlet size, 
+                    footfall, and business goals. Fill out the form below and we'll guide you.
+                  </p>
+                  <p class="text-sm text-gray-600">
+                    💡 <strong>Pro Tip:</strong> Partnership model is perfect if you have high footfall but limited capital. 
+                    Individual model is ideal if you want full control and have investment capacity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ROI Calculator Section */}
       <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="container mx-auto px-4">
           <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
               <i class="fas fa-calculator text-purple-600 mr-3"></i>
-              Your Revenue Projection
+              Revenue Projection (Individual Model)
             </h2>
 
             <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
@@ -1395,6 +1590,20 @@ app.get('/retail', (c) => {
                 </select>
               </div>
 
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Preferred Partnership Model *</label>
+                <select 
+                  name="partnership_model" 
+                  required 
+                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition"
+                >
+                  <option value="">Select your preferred model</option>
+                  <option value="Partnership Model">Partnership Model (₹0 upfront, profit sharing)</option>
+                  <option value="Individual Model">Individual Model (₹2.5L-₹5L, buy raw materials)</option>
+                  <option value="Not Sure">Not Sure - Need Consultation</option>
+                </select>
+              </div>
+
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-gray-700 font-semibold mb-2">City *</label>
@@ -1552,9 +1761,9 @@ app.get('/distributor', (c) => {
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
               <div class="bg-green-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-green-600 mb-2">₹50L+</div>
-                <p class="text-lg font-semibold text-gray-800 mb-2">Investment Range</p>
-                <p class="text-sm text-gray-600">For serious investors ready to scale</p>
+                <div class="text-5xl font-bold text-green-600 mb-2">Up to ₹15L*</div>
+                <p class="text-lg font-semibold text-gray-800 mb-2">Refundable Investment</p>
+                <p class="text-sm text-gray-600">Subject to terms & conditions</p>
               </div>
               
               <div class="bg-blue-50 rounded-2xl p-8 text-center">
@@ -1659,7 +1868,7 @@ app.get('/distributor', (c) => {
                 { icon: 'briefcase', title: 'FMCG Distribution Experience', desc: 'Existing distribution network in food & beverage sector' },
                 { icon: 'warehouse', title: 'Infrastructure Ready', desc: 'Storage facility and logistics capability' },
                 { icon: 'users-cog', title: 'Team Capability', desc: '5+ person sales and service team' },
-                { icon: 'money-bill-wave', title: 'Financial Strength', desc: '₹50L+ investment capacity for inventory and setup' },
+                { icon: 'money-bill-wave', title: 'Financial Strength', desc: 'Up to ₹15L refundable investment capacity*' },
                 { icon: 'handshake', title: 'Relationship Network', desc: 'Connections with cafés, restaurants, retail chains' },
                 { icon: 'chart-line', title: 'Growth Mindset', desc: 'Vision to scale to 50+ outlets in 2 years' }
               ].map((item, index) => (
@@ -1899,6 +2108,22 @@ app.get('/distributor', (c) => {
         </div>
       </section>
 
+      {/* Disclaimer Section */}
+      <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
+            <p class="mb-2">
+              <strong>* Terms & Conditions Apply:</strong> Refundable investment up to ₹15L is subject to distributor agreement terms and performance criteria. 
+              Territory allocation is based on market assessment and applicant qualifications.
+            </p>
+            <p>
+              Investment amounts and margin percentages may vary based on territory size, market potential, and infrastructure requirements. 
+              All figures are indicative and subject to final agreement.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
@@ -1911,7 +2136,7 @@ app.get('/distributor', (c) => {
         </div>
       </footer>
     </>,
-    { title: 'London Slush Distributor - Exclusive Territory Rights | ₹50L+ Partnership' }
+    { title: 'London Slush Distributor - Exclusive Territory Rights | Up to ₹15L Refundable' }
   )
 })
 
