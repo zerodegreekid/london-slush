@@ -10,18 +10,22 @@
 
 This is a **high-converting B2B lead generation platform** designed to capture qualified leads for three distinct partnership models:
 
-1. **Franchise Owners** (₹8L-₹25L investment)
-2. **Retail/Café Partners** (₹2.5L-₹5L investment)
-3. **Distributors/Investors** (₹50L+ investment)
+1. **Franchise Owners** (₹8L-₹10L investment)*
+2. **Retail/Café Partners** (Partnership Model: ₹0 upfront OR Individual Model: ₹2.5L-₹5L)
+3. **Distributors/Investors** (Up to ₹15L refundable investment)*
+
+*Subject to terms and conditions
 
 Built with **Conversion Rate Optimization (CRO)** principles at its core, every element is designed to reduce friction and increase qualified lead submissions.
 
 ---
 
-## ✅ Completed Features
+## ✅ Completed Features (LATEST UPDATE)
 
 ### 🏠 Homepage
 - **3-Choice Intent Gateway** - Role-based entry paths for self-segmentation
+- **Updated investment amounts** - Accurate ₹8-10L for franchise, ₹15L for distributor
+- **Attention-grabbing images** - Fabulous juicy slush, dance with slush photos
 - **Outcome-driven hero section** with trust anchors
 - **Social proof** (150+ partners, 45+ cities)
 - **Financial transparency** (margins, ROI timelines)
@@ -30,14 +34,21 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 - **Floating WhatsApp button** for instant engagement
 
 ### 🏪 Franchise Funnel (`/franchise`)
+- **Updated investment range: ₹8L-₹10L*** (with disclaimer)
 - **Financial transparency block** with investment breakdown
 - **Revenue scenarios table** (low/average/high footfall)
-- **Risk reversal section** (refundable security, no hidden fees)
+- **Risk reversal section** (refundable security*, no hidden fees)
 - **Complete inclusion checklist** (what you get)
 - **Smart qualification form** with 10+ fields
+- **Terms & conditions disclaimer** at bottom
 - **D1 Database integration** for lead storage
 
 ### ☕ Retail/Café Funnel (`/retail`)
+- **🆕 TWO PARTNERSHIP MODELS:**
+  - **Partnership Model** (₹0 upfront, profit sharing basis)
+  - **Individual Model** (₹2.5L-₹5L, purchase raw materials with 3-month lookout period)
+- **Partnership model selection** in lead form
+- **Detailed comparison** of both models
 - **Value proposition** for existing outlet owners
 - **ROI calculator** with investment breakdown
 - **Revenue projections** based on footfall
@@ -46,12 +57,14 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 - **Streamlined lead capture form**
 
 ### 🚚 Distributor Funnel (`/distributor`)
+- **Updated investment: Up to ₹15L* (Refundable)**
 - **Premium positioning** with exclusivity messaging
 - **Distribution business model** explanation
 - **Revenue streams breakdown** (4 sources)
 - **Ideal distributor profile** (6 criteria)
 - **Territory availability map** (8 regions)
 - **High-priority lead qualification**
+- **Terms & conditions disclaimer** at bottom
 
 ### 🎉 Thank You Page (`/thank-you`)
 - **Dynamic content** based on funnel type
@@ -59,6 +72,14 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 - **Immediate action options** (WhatsApp, Call)
 - **Business hours information**
 - **Social proof reminder**
+
+### 📸 Visual Assets
+- **7 high-quality product images**
+- **1 promotional video** (promo-video.mp4)
+- Fabulous & Juicy Slush photos
+- Fusion Raspberry & Green Apple
+- Icy Coca, Rainbow Slush
+- Dance with Slush (kid-friendly appeal)
 
 ---
 
@@ -358,15 +379,26 @@ For technical support or business inquiries:
 This platform is a **conversion-optimized lead generation machine** that:
 
 1. **Segments visitors** into three distinct buyer personas
-2. **Reduces decision friction** with transparency and social proof
-3. **Captures qualified leads** with smart forms
-4. **Drives immediate action** with WhatsApp and phone CTAs
-5. **Stores data efficiently** in Cloudflare D1 database
+2. **Offers flexible partnership models** (Partnership vs Individual for retail)
+3. **Provides accurate investment information** (₹8-10L franchise, ₹15L distributor*)
+4. **Reduces decision friction** with transparency and social proof
+5. **Captures qualified leads** with smart forms
+6. **Drives immediate action** with WhatsApp and phone CTAs
+7. **Stores data efficiently** in Cloudflare D1 database
+8. **Includes legal disclaimers** for refundable security terms
+
+**Latest Enhancements (2026-01-11):**
+- ✅ Updated investment amounts across all funnels
+- ✅ Added dual partnership models for retail (₹0 upfront vs ₹2.5L-₹5L)
+- ✅ Added refundable security disclaimers with asterisks
+- ✅ Integrated 7 new high-quality product images
+- ✅ Added promotional video asset
+- ✅ Enhanced visual appeal with hover effects
 
 **Built for scale, designed for conversions.**
 
 ---
 
 *Last Updated: 2026-01-11*
-*Status: ✅ Active Development*
-*Version: 1.0.0*
+*Status: ✅ Active Development - All Enhancements Complete*
+*Version: 2.0.0*
