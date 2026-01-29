@@ -1,6 +1,6 @@
 # London Slush - B2B Lead Generation Platform
 
-> **A CRO-optimized multi-funnel conversion engine for London Slush beverage franchise opportunities**
+> **A CRO-optimized dual-funnel conversion engine for London Slush beverage partnership opportunities**
 > 
 > By **Dravya Roots Pvt Ltd**
 
@@ -8,11 +8,10 @@
 
 ## 🎯 Project Overview
 
-This is a **high-converting B2B lead generation platform** designed to capture qualified leads for three distinct partnership models:
+This is a **high-converting B2B lead generation platform** designed to capture qualified leads for **two flexible partnership models**:
 
-1. **Franchise Owners** (₹8L-₹10L investment)*
-2. **Retail/Café Partners** (Partnership Model: ₹0 upfront OR Individual Model: ₹2.5L-₹5L)
-3. **Distributors/Investors** (Up to ₹15L refundable investment)*
+1. **Retail/Café Partners** (Partnership Model: ₹0 upfront OR Individual Model: ₹2.5L-₹5L)
+2. **Distributors** (Up to ₹15L refundable investment)*
 
 *Subject to terms and conditions
 
@@ -20,14 +19,17 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 
 ---
 
-## ✅ Completed Features (LATEST UPDATE - Jan 11, 2026)
+## ✅ Completed Features (LATEST UPDATE - Jan 14, 2026)
 
 ### 🏠 Homepage
-- **3-Choice Intent Gateway** - Role-based entry paths for self-segmentation
-- **Updated investment amounts** - Accurate ₹10-15L for franchise, ₹15L for distributor
+- **2-Choice Intent Gateway** - Role-based entry paths for self-segmentation
+- **Updated heading**: "Choose Your Business Path with London Slush"
+- **Simplified user experience** - Focus on 2 core business models
 - **Attention-grabbing images** - Fabulous juicy slush, dance with slush photos
 - **Outcome-driven hero section** with trust anchors:
   - ✅ Refundable* (Subject to conditions)
+  - ✅ 60-70% Margins* (Subject to conditions)
+  - ✅ "All Opportunities Are Filling Fast, Act Now!" scarcity messaging
   - ✅ 60-70% Margins* (Subject to conditions)
   - ✅ "All Opportunities Are Filling Fast, Act Now!" scarcity messaging
 - **Social proof** (150+ partners)
@@ -36,17 +38,7 @@ Built with **Conversion Rate Optimization (CRO)** principles at its core, every 
 - **Strong CTAs** with multiple contact options
 - **Floating WhatsApp button** for instant engagement
 
-### 🏪 Franchise Funnel (`/franchise`)
-- **Updated investment range: ₹10L-₹15L*** (with disclaimer)
-- **Financial transparency block** with investment breakdown
-- **Revenue scenarios table** (low/average/high footfall)
-- **Risk reversal section** (refundable security*, no hidden fees)
-- **Complete inclusion checklist** (what you get)
-- **Smart qualification form** with 10+ fields
-- **Terms & conditions disclaimer** at bottom
-- **D1 Database integration** for lead storage
-
-### ☕ Retail/Café Funnel (`/retail`)
+### ☕ Retail/Café Funnel (`/retail`) - Most Popular
 - **🆕 TWO PARTNERSHIP MODELS:**
   - **Partnership Model** (₹0 upfront, profit sharing basis)
   - **Individual Model** (₹2.5L-₹5L, purchase raw materials with 3-month lookout period)
