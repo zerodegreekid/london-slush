@@ -283,87 +283,101 @@ app.get('/', (c) => {
         </div>
       </nav>
 
-      {/* Hero Section - Above The Fold */}
-      <section class="gradient-bg text-white py-20 md:py-32 relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Copy */}
-            <div class="space-y-8">
-              <div class="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
-                <i class="fas fa-star text-yellow-400 mr-2"></i>
-                Trusted by 150+ Partners Across India
+      {/* Hero Section - Video Background */}
+      <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          aria-hidden="true"
+          class="absolute inset-0 w-full h-full object-cover"
+          poster="/fabulous-juicy-slush.jpg"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Dark Overlay for Text Readability */}
+        <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
+
+        {/* Hero Content */}
+        <div class="container mx-auto px-4 relative z-10 text-center text-white">
+          <div class="max-w-5xl mx-auto space-y-8 animate-fade-in">
+            {/* Logo */}
+            <div class="flex justify-center mb-6">
+              <img src="/logo.svg" alt="London Slush" class="h-24 md:h-32 drop-shadow-2xl" />
+            </div>
+
+            {/* Main Headline */}
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+              Born in <span class="text-yellow-300">London</span>.<br/>
+              Crafted for <span class="text-yellow-300">India</span>.
+            </h1>
+
+            {/* Subtext */}
+            <p class="text-xl md:text-3xl text-gray-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+              A premium global frozen beverage brand
+            </p>
+
+            {/* Trust Badges */}
+            <div class="flex flex-wrap justify-center gap-6 py-6">
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="font-semibold">150+ Partners</span>
               </div>
-              
-              <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                Grow Profitable Beverage Revenue with <span class="text-yellow-300">London Slush</span>
-              </h1>
-              
-              <p class="text-xl md:text-2xl text-blue-100 leading-relaxed">
-                Built for Franchisees, Retail Chains & Distribution Partners Across India
-              </p>
-              
-              {/* Trust Anchors */}
-              <div class="grid grid-cols-2 gap-4 py-6">
-                <div class="flex items-start space-x-3">
-                  <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
-                  <div>
-                    <p class="font-semibold text-lg">Refundable* (Subject to conditions)</p>
-                    <p class="text-blue-100 text-sm">Low-risk investment model</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
-                  <div>
-                    <p class="font-semibold text-lg">Plug & Play Setup</p>
-                    <p class="text-blue-100 text-sm">Start earning in 7 days</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
-                  <div>
-                    <p class="font-semibold text-lg">Central Supply</p>
-                    <p class="text-blue-100 text-sm">Consistent quality guaranteed</p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <i class="fas fa-check-circle text-green-400 text-2xl mt-1"></i>
-                  <div>
-                    <p class="font-semibold text-lg">60-70% Margins* (Subject to conditions)</p>
-                    <p class="text-blue-100 text-sm">Industry-leading profitability</p>
-                  </div>
-                </div>
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+                <i class="fas fa-chart-line text-green-400"></i>
+                <span class="font-semibold">60-70% Margins*</span>
               </div>
-              
-              {/* Social Proof Numbers */}
-              <div class="flex justify-center pt-4 border-t border-white/20">
-                <div class="bg-yellow-400 text-brand-blue px-8 py-4 rounded-2xl shadow-2xl">
-                  <p class="text-2xl font-bold text-center">⚡ All Opportunities Are Filling Fast, Act Now!</p>
-                </div>
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+                <i class="fas fa-shield-alt text-blue-400"></i>
+                <span class="font-semibold">Refundable*</span>
               </div>
             </div>
 
-            {/* Right: Product Images */}
-            <div class="relative">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="/fabulous-juicy-slush.jpg" alt="London Slush Fabulous" class="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-105 transition duration-300" />
-                <img src="/dance-with-slush.jpg" alt="Dance with Slush" class="rounded-2xl shadow-2xl w-full h-64 object-cover mt-8 hover:scale-105 transition duration-300" />
-              </div>
-              <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-brand-blue px-6 py-3 rounded-full shadow-xl font-bold pulse-animation">
-                <i class="fas fa-fire mr-2"></i>Kids Love It!
+            {/* Primary CTA */}
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <a 
+                href="#business-paths" 
+                class="bg-brand-red hover:bg-red-700 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition transform hover:scale-105 flex items-center space-x-3"
+              >
+                <span>Explore the Opportunity</span>
+                <i class="fas fa-arrow-down"></i>
+              </a>
+              <a 
+                href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" 
+                target="_blank"
+                class="bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition transform hover:scale-105 flex items-center space-x-3"
+              >
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span>Chat Now</span>
+              </a>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+              <div class="flex flex-col items-center space-y-2 text-white/80">
+                <span class="text-sm font-medium">Scroll to explore</span>
+                <i class="fas fa-chevron-down text-xl"></i>
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Background Pattern */}
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-        </div>
+
+        {/* Prefers Reduced Motion Fallback */}
+        <noscript>
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600"></div>
+        </noscript>
       </section>
 
-      {/* 3-CHOICE INTENT GATEWAY */}
-      <section class="py-20 bg-gray-50 relative -mt-16">
+      {/* Add spacing after video hero */}
+      <div class="bg-white h-8"></div>
+
+      {/* 2-CHOICE BUSINESS PATHS */}
+      <section id="business-paths" class="py-20 bg-gray-50 relative">
         <div class="container mx-auto px-4">
           <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative z-10">
             <div class="text-center mb-12">

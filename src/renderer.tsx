@@ -88,6 +88,41 @@ export const renderer = jsxRenderer(({ children, title }) => {
               }
             }
             
+            /* Video Hero Animations */
+            .animate-fade-in {
+              animation: fadeIn 1.5s ease-out;
+            }
+            
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            
+            /* Reduced Motion Support */
+            @media (prefers-reduced-motion: reduce) {
+              .animate-fade-in,
+              .animate-bounce {
+                animation: none;
+              }
+              
+              video {
+                display: none;
+              }
+            }
+            
+            /* Video Performance Optimization */
+            video {
+              will-change: auto;
+              transform: translateZ(0);
+              -webkit-transform: translateZ(0);
+            }
+            
             .sticky-cta {
               position: fixed;
               bottom: 20px;
