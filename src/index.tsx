@@ -416,32 +416,32 @@ app.get('/', (c) => {
               {/* Distributor Card */}
               <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 card-hover border-2 border-orange-200 relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-yellow-400 text-gray-800 px-4 py-1 rounded-bl-2xl text-sm font-semibold">
-                  High Ticket
+                  High ROI
                 </div>
                 <div class="mb-6">
                   <div class="bg-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mb-4">
                     <i class="fas fa-truck text-3xl"></i>
                   </div>
                   <h3 class="text-2xl font-bold text-gray-800 mb-2">I'm a Distributor</h3>
-                  <p class="text-gray-600 mb-4">Multi-product outlet opportunity</p>
+                  <p class="text-gray-600 mb-4">Bulk machine distribution opportunity</p>
                 </div>
                 
                 <div class="space-y-3 mb-6">
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Investment: ₹15 Lakh</span>
+                    <span>6 Slush Machines + Syrup Stock</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Slush + Sweet Corn + Burgers & More</span>
+                    <span>Investment: ₹15 Lakh (₹12L Refundable*)</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Payback in 12-18 months</span>
+                    <span>Expected ROI: 3-4% Monthly</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Complete profitable outlet setup</span>
+                    <span>Exclusive territory rights</span>
                   </div>
                 </div>
                 
@@ -1238,10 +1238,10 @@ app.get('/distributor', (c) => {
               <i class="fas fa-crown mr-2 text-yellow-300"></i>Premium Partnership
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
-              Scale Across <span class="text-yellow-300">Multiple Cities</span> as an Exclusive Distributor
+              Become a <span class="text-yellow-300">London Slush Distributor</span> with 6 Machines
             </h1>
             <p class="text-xl md:text-2xl mb-8 opacity-90">
-              Territory-based distribution rights with volume-based margins and expansion support
+              Start your distribution business with 6 slush machines and initial syrup stock. Expected ROI: 3-4% monthly
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#distributor-form" class="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl">
@@ -1265,56 +1265,56 @@ app.get('/distributor', (c) => {
             
             <div class="grid md:grid-cols-3 gap-8 mb-12">
               <div class="bg-green-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-green-600 mb-2">Up to ₹15L*</div>
-                <p class="text-lg font-semibold text-gray-800 mb-2">Refundable Investment</p>
+                <div class="text-5xl font-bold text-green-600 mb-2">₹12L*</div>
+                <p class="text-lg font-semibold text-gray-800 mb-2">Refundable (Machines)</p>
                 <p class="text-sm text-gray-600">Subject to terms & conditions</p>
               </div>
               
               <div class="bg-blue-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-blue-600 mb-2">20-30%</div>
-                <p class="text-lg font-semibold text-gray-800 mb-2">Distribution Margin</p>
-                <p class="text-sm text-gray-600">On every machine & syrup supply</p>
+                <div class="text-5xl font-bold text-blue-600 mb-2">6</div>
+                <p class="text-lg font-semibold text-gray-800 mb-2">Slush Machines</p>
+                <p class="text-sm text-gray-600">Plus ₹3L initial syrup stock</p>
               </div>
               
               <div class="bg-purple-50 rounded-2xl p-8 text-center">
-                <div class="text-5xl font-bold text-purple-600 mb-2">12-18</div>
-                <p class="text-lg font-semibold text-gray-800 mb-2">Months Payback</p>
-                <p class="text-sm text-gray-600">Complete profitable outlet setup</p>
+                <div class="text-5xl font-bold text-purple-600 mb-2">3-4%</div>
+                <p class="text-lg font-semibold text-gray-800 mb-2">Monthly ROI</p>
+                <p class="text-sm text-gray-600">Expected return on investment</p>
               </div>
             </div>
 
             <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 md:p-12">
-              <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Distributor Business Model</h3>
+              <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Your Investment Breakdown</h3>
               <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 class="font-bold text-lg text-gray-800 mb-4">Revenue Streams</h4>
+                  <h4 class="font-bold text-lg text-gray-800 mb-4">Initial Investment: ₹15 Lakh</h4>
                   <ul class="space-y-3">
                     <li class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-green-500 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">Machine Sales Margin</p>
-                        <p class="text-sm text-gray-600">₹50,000 - ₹1,00,000 per machine</p>
+                        <p class="font-semibold">6 Slush Machines</p>
+                        <p class="text-sm text-gray-600">₹12 Lakh (Refundable*)</p>
                       </div>
                     </li>
                     <li class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-green-500 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">Recurring Syrup Supply</p>
-                        <p class="text-sm text-gray-600">15-20% margin on monthly orders</p>
+                        <p class="font-semibold">Initial Syrup Stock</p>
+                        <p class="text-sm text-gray-600">₹3 Lakh working capital</p>
                       </div>
                     </li>
                     <li class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-green-500 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">Franchise Referral Fees</p>
-                        <p class="text-sm text-gray-600">Commission on franchisee onboarding</p>
+                        <p class="font-semibold">Expected Monthly ROI</p>
+                        <p class="text-sm text-gray-600">3-4% on total investment</p>
                       </div>
                     </li>
                     <li class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-green-500 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">AMC Contracts</p>
-                        <p class="text-sm text-gray-600">Annual maintenance revenue</p>
+                        <p class="font-semibold">Refund Terms</p>
+                        <p class="text-sm text-gray-600">Subject to agreement conditions</p>
                       </div>
                     </li>
                   </ul>
@@ -1324,31 +1324,31 @@ app.get('/distributor', (c) => {
                   <h4 class="font-bold text-lg text-gray-800 mb-4">What You Get</h4>
                   <ul class="space-y-3">
                     <li class="flex items-start space-x-3">
+                      <i class="fas fa-blender text-blue-600 text-xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold">6 Professional Machines</p>
+                        <p class="text-sm text-gray-600">High-capacity slush equipment</p>
+                      </div>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                      <i class="fas fa-flask text-blue-600 text-xl mt-1"></i>
+                      <div>
+                        <p class="font-semibold">Premium Syrup Supply</p>
+                        <p class="text-sm text-gray-600">Multiple flavor variants included</p>
+                      </div>
+                    </li>
+                    <li class="flex items-start space-x-3">
                       <i class="fas fa-map-marked-alt text-blue-600 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">Exclusive Territory Rights</p>
-                        <p class="text-sm text-gray-600">Protected region with no competition</p>
-                      </div>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                      <i class="fas fa-truck text-blue-600 text-xl mt-1"></i>
-                      <div>
-                        <p class="font-semibold">Inventory on Credit</p>
-                        <p class="text-sm text-gray-600">30-day payment terms for syrup orders</p>
-                      </div>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                      <i class="fas fa-users text-blue-600 text-xl mt-1"></i>
-                      <div>
-                        <p class="font-semibold">Lead Generation Support</p>
-                        <p class="text-sm text-gray-600">National marketing drives local leads</p>
+                        <p class="font-semibold">Territory Rights</p>
+                        <p class="text-sm text-gray-600">Exclusive distribution area</p>
                       </div>
                     </li>
                     <li class="flex items-start space-x-3">
                       <i class="fas fa-tools text-blue-600 text-xl mt-1"></i>
                       <div>
-                        <p class="font-semibold">Technical Training</p>
-                        <p class="text-sm text-gray-600">Become certified installation expert</p>
+                        <p class="font-semibold">Technical Support</p>
+                        <p class="text-sm text-gray-600">Installation & maintenance training</p>
                       </div>
                     </li>
                   </ul>
@@ -1359,16 +1359,16 @@ app.get('/distributor', (c) => {
         </div>
       </section>
 
-      {/* Multi-Product Outlet Opportunities */}
+      {/* Distribution Opportunity Locations */}
       <section class="py-16 bg-gradient-to-br from-orange-50 to-yellow-50">
         <div class="container mx-auto px-4">
           <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
               <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Complete Profitable Outlet Setup
+                Perfect Distribution Locations
               </h2>
               <p class="text-xl text-gray-600">
-                Slush + Sweet Corn + Burgers & More - All under one roof!
+                Place your 6 machines in high-traffic locations for maximum returns
               </p>
             </div>
 
@@ -1408,35 +1408,31 @@ app.get('/distributor', (c) => {
             </div>
 
             <div class="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-3xl p-8 md:p-12 text-center">
-              <h3 class="text-2xl md:text-3xl font-bold mb-4">Complete Outlet Product Mix</h3>
-              <div class="grid md:grid-cols-4 gap-6 mb-6">
+              <h3 class="text-2xl md:text-3xl font-bold mb-4">Your Distribution Package</h3>
+              <div class="grid md:grid-cols-3 gap-6 mb-6">
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                  <i class="fas fa-glass-whiskey text-4xl mb-2"></i>
-                  <p class="font-semibold">London Slush</p>
-                  <p class="text-sm opacity-90">15+ Flavors</p>
+                  <i class="fas fa-blender text-4xl mb-2"></i>
+                  <p class="font-semibold">6 Machines</p>
+                  <p class="text-sm opacity-90">Professional Grade</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                  <i class="fas fa-corn text-4xl mb-2"></i>
-                  <p class="font-semibold">Sweet Corn</p>
-                  <p class="text-sm opacity-90">Premium Quality</p>
+                  <i class="fas fa-flask text-4xl mb-2"></i>
+                  <p class="font-semibold">Syrup Stock</p>
+                  <p class="text-sm opacity-90">₹3L Initial Supply</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                  <i class="fas fa-hamburger text-4xl mb-2"></i>
-                  <p class="font-semibold">Burgers</p>
-                  <p class="text-sm opacity-90">Veg & Non-Veg</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                  <i class="fas fa-ice-cream text-4xl mb-2"></i>
-                  <p class="font-semibold">More Options</p>
-                  <p class="text-sm opacity-90">Shakes & Snacks</p>
+                  <i class="fas fa-chart-line text-4xl mb-2"></i>
+                  <p class="font-semibold">3-4% ROI</p>
+                  <p class="text-sm opacity-90">Monthly Returns</p>
                 </div>
               </div>
               <p class="text-xl mb-6">
-                <strong class="text-yellow-300">₹15 Lakh Refundable Investment*</strong> | 
-                <strong class="text-yellow-300 ml-2">12-18 Months Payback</strong>
+                <strong class="text-yellow-300">₹12 Lakh Refundable*</strong> | 
+                <strong class="text-yellow-300 ml-2">₹3 Lakh Syrup Stock</strong> |
+                <strong class="text-yellow-300 ml-2">Total: ₹15 Lakh</strong>
               </p>
               <a href="#distributor-form" class="inline-block bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-xl">
-                <i class="fas fa-rocket mr-2"></i>Start Your Profitable Outlet Journey
+                <i class="fas fa-rocket mr-2"></i>Start Your Distribution Business
               </a>
             </div>
           </div>
