@@ -832,12 +832,18 @@ app.get('/', (c) => {
               <p class="font-semibold text-sm text-gray-300">Important Disclaimers:</p>
               <p><strong>* Refundable Investment:</strong> Subject to distributor agreement terms, performance criteria, and machine return conditions. Refund processing may take 30-90 days after agreement termination.</p>
               <p><strong>* Profit Margins:</strong> 60-70% margins are estimates based on recommended retail pricing minus cost of goods. Actual margins may vary based on local pricing, operational costs, and business management.</p>
-              <p><strong>About London Slush:</strong> A premium frozen beverage brand operated by <strong>Dravya Roots Pvt Ltd</strong>, bringing international-quality products to India. Our recipes and branding draw inspiration from London's vibrant beverage culture, adapted specifically for the Indian market with local flavors and preferences.</p>
+              <p><strong>About London Slush:</strong> A premium frozen beverage brand with UK registration (<strong>Camellia Foods LTD, 13675105B1, Blackburn, UK</strong>), operated in India by <strong>Dravya Roots Pvt Ltd</strong>. Our recipes and branding draw inspiration from London's vibrant beverage culture, adapted specifically for the Indian market with local flavors and preferences.</p>
             </div>
           </div>
           
           <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2026 London Slush by Dravya Roots Pvt Ltd. All rights reserved.</p>
+            <div class="mb-3">
+              <p class="font-bold text-white text-base mb-2">🇬🇧 UK Registered Office</p>
+              <p class="text-xs"><strong>London Slush - Camellia Foods LTD</strong></p>
+              <p class="text-xs">Company Registration: 13675105B1</p>
+              <p class="text-xs">Business Centre, Suite 206 Davyfield Road, Blackburn, BB1 2QY, United Kingdom</p>
+            </div>
+            <p>&copy; 2026 London Slush | UK: Camellia Foods LTD | India Operations: Dravya Roots Pvt Ltd. All rights reserved.</p>
             <p class="mt-2 text-xs">For partnership inquiries: Call 800-699-9805 | WhatsApp +91-800-699-9805 | Email info@londonslush.com</p>
           </div>
         </div>
@@ -1967,9 +1973,7 @@ app.get('/products', (c) => {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Flavor 1 - Tangy Orange */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-orange-400 to-orange-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-lemon text-white text-6xl"></i>
-              </div>
+              <img src="/slush-varieties.jpg" alt="Tangy Orange Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Tangy Orange</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Orange Punch – Orange Flavoured Mix!</p>
               <p class="text-gray-700">
@@ -1979,9 +1983,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 2 - Exotic Pineapple */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-apple-alt text-white text-6xl"></i>
-              </div>
+              <img src="/fusion-raspberry-green.jpg" alt="Exotic Pineapple Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Exotic Pineapple</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Refreshing Pineapple Slush With A Kick!</p>
               <p class="text-gray-700">
@@ -1991,9 +1993,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 3 - Icy Cola */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-gray-700 to-gray-900 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-glass-whiskey text-white text-6xl"></i>
-              </div>
+              <img src="/icy-coca.jpg" alt="Icy Cola Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Icy Cola</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Cola Flavoured Slush With Great Colour!</p>
               <p class="text-gray-700">
@@ -2003,9 +2003,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 4 - Sweet Litchi */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-pink-300 to-pink-500 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-leaf text-white text-6xl"></i>
-              </div>
+              <img src="/slush-pink-drink.jpg" alt="Sweet Litchi Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Sweet Litchi</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Fruity Taste Made From Real Litchi!</p>
               <p class="text-gray-700">
@@ -2015,9 +2013,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 5 - Sour Green Apple */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-green-400 to-green-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-apple-alt text-white text-6xl"></i>
-              </div>
+              <img src="/fabulous-juicy-slush.jpg" alt="Sour Green Apple Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Sour Green Apple</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Fresh Green Apple Goodness!</p>
               <p class="text-gray-700">
@@ -2027,9 +2023,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 6 - Blue Berry */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-blue-400 to-blue-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-seedling text-white text-6xl"></i>
-              </div>
+              <img src="/slush-blue-drinks.jpg" alt="Blue Berry Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Blue Berry</h3>
               <p class="text-sm text-gray-600 mb-3 italic">A Mix Of Tropical Flavour Of Berry!</p>
               <p class="text-gray-700">
@@ -2039,9 +2033,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 7 - Bubble Gum */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-pink-400 to-pink-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-candy-cane text-white text-6xl"></i>
-              </div>
+              <img src="/slush-pink-grape.jpg" alt="Bubble Gum Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Bubble Gum</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Splash With A Bubble Gum Twist!</p>
               <p class="text-gray-700">
@@ -2051,9 +2043,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 8 - Simple Strawberry */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-red-400 to-red-600 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-heart text-white text-6xl"></i>
-              </div>
+              <img src="/dance-with-slush.jpg" alt="Simple Strawberry Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Simple Strawberry</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Tropical Slush With Strawberry Passion!</p>
               <p class="text-gray-700">
@@ -2063,9 +2053,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 9 - Seven Rainbow */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-purple-400 via-pink-400 to-yellow-400 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-rainbow text-white text-6xl"></i>
-              </div>
+              <img src="/rainbow-slush.jpg" alt="Seven Rainbow Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Seven Rainbow</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Refreshing Rainbow Slushie!</p>
               <p class="text-gray-700">
@@ -2075,9 +2063,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 10 - Awesome Mango */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-yellow-500 to-orange-500 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-sun text-white text-6xl"></i>
-              </div>
+              <img src="/fabulous-juicy-slush.jpg" alt="Awesome Mango Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Awesome Mango</h3>
               <p class="text-sm text-gray-600 mb-3 italic">A Blend Of Tropical Mango!</p>
               <p class="text-gray-700">
@@ -2087,9 +2073,7 @@ app.get('/products', (c) => {
 
             {/* Flavor 11 - Power Blackberry */}
             <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-              <div class="bg-gradient-to-br from-purple-600 to-purple-900 h-48 rounded-xl mb-4 flex items-center justify-center">
-                <i class="fas fa-bolt text-white text-6xl"></i>
-              </div>
+              <img src="/slush-varieties.jpg" alt="Power Blackberry Slush" class="w-full h-48 object-cover rounded-xl mb-4" />
               <h3 class="text-2xl font-bold mb-2">Power Blackberry</h3>
               <p class="text-sm text-gray-600 mb-3 italic">Refreshing Blackberry Slush!</p>
               <p class="text-gray-700">
@@ -2289,7 +2273,15 @@ app.get('/products', (c) => {
             </div>
           </div>
           <div class="border-t border-gray-800 pt-6 text-center text-gray-500">
-            <p>&copy; 2026 London Slush by Dravya Roots Pvt Ltd. All rights reserved.</p>
+            <div class="mb-4 text-sm">
+              <p class="font-bold text-white mb-2">🇬🇧 UK Registered Office</p>
+              <p><strong>London Slush</strong></p>
+              <p>Camellia Foods LTD, Company Registration: 13675105B1</p>
+              <p>Business Centre, Suite 206 Davyfield Road, Blackburn, BB1 2QY, United Kingdom</p>
+              <p class="mt-2"><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:info@londonslush.com" class="text-brand-light-blue hover:text-white">info@londonslush.com</a></p>
+            </div>
+            <p class="text-xs">&copy; 2026 London Slush by Dravya Roots Pvt Ltd (India Operations). All rights reserved.</p>
+            <p class="text-xs mt-1">UK Operations: Camellia Foods LTD | India Partner: Dravya Roots Pvt Ltd</p>
           </div>
         </div>
       </footer>
