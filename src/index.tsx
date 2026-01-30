@@ -15,6 +15,55 @@ app.use('/api/*', cors())
 // API ROUTES - FORM SUBMISSION HANDLERS
 // =============================================
 
+// Helper function to send email notifications
+async function sendEmailNotification(
+  to: string,
+  subject: string,
+  htmlBody: string,
+  textBody: string
+) {
+  try {
+    // Using MailChannels API (free with Cloudflare Workers)
+    const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        personalizations: [
+          {
+            to: [{ email: to }],
+          },
+        ],
+        from: {
+          email: 'noreply@londonslush.com',
+          name: 'London Slush Leads',
+        },
+        subject: subject,
+        content: [
+          {
+            type: 'text/plain',
+            value: textBody,
+          },
+          {
+            type: 'text/html',
+            value: htmlBody,
+          },
+        ],
+      }),
+    })
+
+    if (!response.ok) {
+      console.error('Email send failed:', await response.text())
+      return false
+    }
+    return true
+  } catch (error) {
+    console.error('Email error:', error)
+    return false
+  }
+}
+
 // Retail Form Handler
 app.post('/api/submit-retail', async (c) => {
   try {
@@ -40,6 +89,55 @@ app.post('/api/submit-retail', async (c) => {
       formData.business_type,
       formData.source_page
     ).run()
+
+    // Send email notification to both addresses
+    const emailSubject = `🔔 New Retail Lead: ${formData.name}`
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #dc1f26;">New Retail Partnership Inquiry</h2>
+        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Phone:</strong> <a href="tel:${formData.phone}">${formData.phone}</a></p>
+          <p><strong>Email:</strong> <a href="mailto:${formData.email || 'Not provided'}">${formData.email || 'Not provided'}</a></p>
+          <p><strong>City:</strong> ${formData.city}</p>
+          <p><strong>Investment Range:</strong> ${formData.investment_range}</p>
+          <p><strong>Timeline:</strong> ${formData.timeline}</p>
+          <p><strong>Current Business:</strong> ${formData.current_business || 'Not specified'}</p>
+          <p><strong>Outlet Count:</strong> ${formData.outlet_count || 'Not specified'}</p>
+          <p><strong>Business Type:</strong> ${formData.business_type}</p>
+          ${formData.notes ? `<p><strong>Notes:</strong> ${formData.notes}</p>` : ''}
+          <p><strong>Source:</strong> ${formData.source_page}</p>
+          <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+        </div>
+        <p style="margin-top: 20px; color: #666;">
+          <strong>Action Required:</strong> Contact this lead within 24 hours via WhatsApp or phone call.
+        </p>
+      </div>
+    `
+    const emailText = `
+New Retail Partnership Inquiry
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email || 'Not provided'}
+City: ${formData.city}
+Investment Range: ${formData.investment_range}
+Timeline: ${formData.timeline}
+Current Business: ${formData.current_business || 'Not specified'}
+Outlet Count: ${formData.outlet_count || 'Not specified'}
+Business Type: ${formData.business_type}
+${formData.notes ? `Notes: ${formData.notes}` : ''}
+Source: ${formData.source_page}
+Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+
+Action Required: Contact this lead within 24 hours.
+    `
+
+    // Send to both email addresses (don't block on email sending)
+    Promise.all([
+      sendEmailNotification('info@londonslush.com', emailSubject, emailHtml, emailText),
+      sendEmailNotification('support@londonslush.com', emailSubject, emailHtml, emailText)
+    ]).catch(err => console.error('Email notification error:', err))
 
     // Redirect to thank you page
     return c.redirect(`/thank-you?type=retail&name=${encodeURIComponent(formData.name as string)}`)
@@ -77,6 +175,61 @@ app.post('/api/submit-distributor', async (c) => {
       formData.source_page,
       'high' // Distributor leads are always high priority
     ).run()
+
+    // Send email notification to both addresses
+    const emailSubject = `🚨 New Distributor Lead (HIGH PRIORITY): ${formData.name}`
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #dc1f26;">⭐ New Distributor Partnership Inquiry (HIGH VALUE)</h2>
+        <div style="background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107;">
+          <p style="color: #856404; font-weight: bold;">🚨 HIGH PRIORITY LEAD - Investment Range: ${formData.investment_range}</p>
+        </div>
+        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-top: 15px;">
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Phone:</strong> <a href="tel:${formData.phone}">${formData.phone}</a></p>
+          <p><strong>Email:</strong> <a href="mailto:${formData.email}">${formData.email}</a></p>
+          <p><strong>City:</strong> ${formData.city}</p>
+          <p><strong>Investment Range:</strong> <span style="color: #dc1f26; font-weight: bold;">${formData.investment_range}</span></p>
+          <p><strong>Timeline:</strong> ${formData.timeline}</p>
+          <p><strong>Current Business:</strong> ${formData.current_business || 'Not specified'}</p>
+          <p><strong>Experience:</strong> ${formData.experience_years || 'Not specified'} years</p>
+          <p><strong>Outlet Count:</strong> ${formData.outlet_count || 'Not specified'}</p>
+          <p><strong>Business Type:</strong> ${formData.business_type}</p>
+          ${formData.notes ? `<p><strong>Notes:</strong> ${formData.notes}</p>` : ''}
+          <p><strong>Source:</strong> ${formData.source_page}</p>
+          <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+        </div>
+        <div style="margin-top: 20px; padding: 15px; background: #dc1f26; color: white; border-radius: 8px;">
+          <p style="margin: 0; font-weight: bold;">⚡ URGENT ACTION REQUIRED</p>
+          <p style="margin: 5px 0 0 0;">Contact this HIGH-VALUE distributor lead within 4 hours via phone call.</p>
+        </div>
+      </div>
+    `
+    const emailText = `
+🚨 HIGH PRIORITY: New Distributor Partnership Inquiry
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+City: ${formData.city}
+Investment Range: ${formData.investment_range}
+Timeline: ${formData.timeline}
+Current Business: ${formData.current_business || 'Not specified'}
+Experience: ${formData.experience_years || 'Not specified'} years
+Outlet Count: ${formData.outlet_count || 'Not specified'}
+Business Type: ${formData.business_type}
+${formData.notes ? `Notes: ${formData.notes}` : ''}
+Source: ${formData.source_page}
+Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+
+⚡ URGENT: Contact this HIGH-VALUE distributor lead within 4 hours.
+    `
+
+    // Send to both email addresses (don't block on email sending)
+    Promise.all([
+      sendEmailNotification('info@londonslush.com', emailSubject, emailHtml, emailText),
+      sendEmailNotification('support@londonslush.com', emailSubject, emailHtml, emailText)
+    ]).catch(err => console.error('Email notification error:', err))
 
     // Redirect to thank you page
     return c.redirect(`/thank-you?type=distributor&name=${encodeURIComponent(formData.name as string)}`)
