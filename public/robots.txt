@@ -1,0 +1,26 @@
+# London Slush - Robots.txt
+# Allow all search engines to crawl everything
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://londonslush.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow only admin/API routes (if any in future)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /api/internal/
