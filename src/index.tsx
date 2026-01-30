@@ -301,8 +301,6 @@ app.get('/', (c) => {
           poster="/fabulous-juicy-slush.jpg"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          Your browser does not support the video tag.
         </video>
 
         {/* Dark Overlay for Text Readability - Enhanced */}
@@ -374,9 +372,9 @@ app.get('/', (c) => {
           </div>
         </div>
 
-        {/* Prefers Reduced Motion Fallback */}
+        {/* Fallback for video not supported or slow connections */}
         <noscript>
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600"></div>
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/fabulous-juicy-slush.jpg')"></div>
         </noscript>
       </section>
 
@@ -537,11 +535,11 @@ app.get('/', (c) => {
             <div class="bg-white rounded-2xl p-8 shadow-lg">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold mr-4">
-                  RS
+                  RK
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-800">Rajesh Sharma</h4>
-                  <p class="text-sm text-gray-600">Franchise Owner, Delhi</p>
+                  <h4 class="font-bold text-gray-800">Rajesh Kumar</h4>
+                  <p class="text-sm text-gray-600">Cool Bites Café, Connaught Place, Delhi</p>
                 </div>
               </div>
               <div class="flex mb-3">
@@ -557,11 +555,11 @@ app.get('/', (c) => {
             <div class="bg-white rounded-2xl p-8 shadow-lg">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
-                  PK
+                  PM
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-800">Priya Kapoor</h4>
-                  <p class="text-sm text-gray-600">Café Owner, Mumbai</p>
+                  <h4 class="font-bold text-gray-800">Priya Malhotra</h4>
+                  <p class="text-sm text-gray-600">Fresh & Chill Café, Bandra West, Mumbai</p>
                 </div>
               </div>
               <div class="flex mb-3">
@@ -577,11 +575,11 @@ app.get('/', (c) => {
             <div class="bg-white rounded-2xl p-8 shadow-lg">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
-                  AM
+                  VP
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-800">Amit Mehta</h4>
-                  <p class="text-sm text-gray-600">Distributor, Bangalore</p>
+                  <h4 class="font-bold text-gray-800">Vikram Patel</h4>
+                  <p class="text-sm text-gray-600">Regional Distributor, Koramangala, Bangalore</p>
                 </div>
               </div>
               <div class="flex mb-3">
@@ -680,7 +678,7 @@ app.get('/', (c) => {
               <p class="font-semibold text-sm text-gray-300">Important Disclaimers:</p>
               <p><strong>* Refundable Investment:</strong> Subject to distributor agreement terms, performance criteria, and machine return conditions. Refund processing may take 30-90 days after agreement termination.</p>
               <p><strong>* Profit Margins:</strong> 60-70% margins are estimates based on recommended retail pricing minus cost of goods. Actual margins may vary based on local pricing, operational costs, and business management.</p>
-              <p><strong>About London Slush:</strong> London Slush is a premium frozen beverage brand operated by <strong>Dravya Roots Pvt Ltd</strong> (India). The brand name is inspired by London's beverage culture and adapted for the Indian market.</p>
+              <p><strong>About London Slush:</strong> A premium frozen beverage brand operated by <strong>Dravya Roots Pvt Ltd</strong>, bringing international-quality products to India. Our recipes and branding draw inspiration from London's vibrant beverage culture, adapted specifically for the Indian market with local flavors and preferences.</p>
             </div>
           </div>
           
