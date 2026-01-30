@@ -424,6 +424,7 @@ app.get('/', (c) => {
           </a>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
+            <a href="/products" class="text-gray-700 hover:text-brand-red font-medium">Products</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
             <a href="#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
             <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-semibold flex items-center space-x-2">
@@ -1913,6 +1914,387 @@ app.get('/distributor', (c) => {
       </footer>
     </>,
     { title: 'London Slush Distributor - Exclusive Territory Rights | Up to ₹15L Refundable' }
+  )
+})
+
+// =============================================
+// PRODUCTS PAGE
+// =============================================
+
+app.get('/products', (c) => {
+  return c.html(
+    <>
+      {/* Navigation */}
+      <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+          <a href="/" class="flex items-center">
+            <img src="/logo.png" alt="London Slush" class="h-24" />
+          </a>
+          <div class="hidden md:flex space-x-6 items-center">
+            <a href="/#features" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
+            <a href="/products" class="text-brand-red font-medium">Products</a>
+            <a href="/#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
+            <a href="/#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
+            <a href="https://wa.me/918006999805" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition">
+              <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">Our Product Range</h1>
+          <p class="text-xl md:text-2xl opacity-90">Premium Quality Frozen Beverages & Equipment</p>
+        </div>
+      </section>
+
+      {/* Slush Flavors Section */}
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">
+              <i class="fas fa-snowflake text-brand-light-blue mr-3"></i>
+              11 Delicious Slush Flavors
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Made from high quality syrup with added vitamins A, C & E. 
+              Gluten-free, allergen-free, and suitable for vegetarians.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Flavor 1 - Tangy Orange */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-orange-400 to-orange-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-lemon text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Tangy Orange</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Orange Punch – Orange Flavoured Mix!</p>
+              <p class="text-gray-700">
+                Perfect balance of fruit and sweet flavors. Reminiscent of fresh-squeezed orange from childhood.
+              </p>
+            </div>
+
+            {/* Flavor 2 - Exotic Pineapple */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-apple-alt text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Exotic Pineapple</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Refreshing Pineapple Slush With A Kick!</p>
+              <p class="text-gray-700">
+                Made with real pineapple and signature slush ice. A must-try classic that never disappoints.
+              </p>
+            </div>
+
+            {/* Flavor 3 - Icy Cola */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-gray-700 to-gray-900 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-glass-whiskey text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Icy Cola</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Cola Flavoured Slush With Great Colour!</p>
+              <p class="text-gray-700">
+                Subtle cola flavor that will transport you to a tropical paradise. Unforgettable taste!
+              </p>
+            </div>
+
+            {/* Flavor 4 - Sweet Litchi */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-pink-300 to-pink-500 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-leaf text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Sweet Litchi</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Fruity Taste Made From Real Litchi!</p>
+              <p class="text-gray-700">
+                Real fruit flavor swirling around the cup. One of our most popular flavors!
+              </p>
+            </div>
+
+            {/* Flavor 5 - Sour Green Apple */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-green-400 to-green-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-apple-alt text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Sour Green Apple</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Fresh Green Apple Goodness!</p>
+              <p class="text-gray-700">
+                Sweet and nostalgic with that signature post-drink blue tongue. So worth it!
+              </p>
+            </div>
+
+            {/* Flavor 6 - Blue Berry */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-blue-400 to-blue-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-seedling text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Blue Berry</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">A Mix Of Tropical Flavour Of Berry!</p>
+              <p class="text-gray-700">
+                Combines blue syrup nostalgia with classic berry flavor for a tropical delight.
+              </p>
+            </div>
+
+            {/* Flavor 7 - Bubble Gum */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-pink-400 to-pink-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-candy-cane text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Bubble Gum</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Splash With A Bubble Gum Twist!</p>
+              <p class="text-gray-700">
+                Reminiscent of gum candy from childhood. Brings back that nostalgic feeling!
+              </p>
+            </div>
+
+            {/* Flavor 8 - Simple Strawberry */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-red-400 to-red-600 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-heart text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Simple Strawberry</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Tropical Slush With Strawberry Passion!</p>
+              <p class="text-gray-700">
+                Transport yourself to a summer picnic even in winter. Classic perfection!
+              </p>
+            </div>
+
+            {/* Flavor 9 - Seven Rainbow */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-purple-400 via-pink-400 to-yellow-400 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-rainbow text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Seven Rainbow</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Refreshing Rainbow Slushie!</p>
+              <p class="text-gray-700">
+                Personalized to what your heart wants. More taste and color in one cup!
+              </p>
+            </div>
+
+            {/* Flavor 10 - Awesome Mango */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-yellow-500 to-orange-500 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-sun text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Awesome Mango</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">A Blend Of Tropical Mango!</p>
+              <p class="text-gray-700">
+                Timeless and perfect in all seasons. Simply iconic with slush magic!
+              </p>
+            </div>
+
+            {/* Flavor 11 - Power Blackberry */}
+            <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
+              <div class="bg-gradient-to-br from-purple-600 to-purple-900 h-48 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-bolt text-white text-6xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-2">Power Blackberry</h3>
+              <p class="text-sm text-gray-600 mb-3 italic">Refreshing Blackberry Slush!</p>
+              <p class="text-gray-700">
+                Light, subtle flavors paired with classic slush ice. Most refreshing treat!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Good To Know Features */}
+      <section class="py-16 bg-gradient-to-r from-brand-blue to-brand-light-blue text-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">Good To Know</h2>
+            <p class="text-xl opacity-90">Why Our Slush Syrups Are Superior</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-flask text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">Made with Added Flavors</h3>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-pills text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">With Vitamin A, C & E</h3>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-heart-broken text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">Cholesterol Free</h3>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-ban text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">Lactose Free</h3>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-leaf text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">Suited for Vegetarians</h3>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-white/20 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-wheat text-4xl"></i>
+              </div>
+              <h3 class="font-bold mb-2">Gluten Free</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slush Machines Section */}
+      <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">
+              <i class="fas fa-cog text-brand-blue mr-3"></i>
+              Premium Slush Machines
+            </h2>
+            <p class="text-xl text-gray-700 mb-6">
+              High profitable asset for your food sector business
+            </p>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+              <div class="grid md:grid-cols-2 gap-6 text-left">
+                <div>
+                  <h3 class="font-bold text-xl mb-3 text-brand-blue">Machine Features:</h3>
+                  <ul class="space-y-2">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Manufactured in Italy</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Quick freezing technology</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Extremely low maintenance</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Super simple to use</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl mb-3 text-brand-blue">Support Included:</h3>
+                  <ul class="space-y-2">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Designed to last 10 years</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Dedicated telephone helpline</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>On-site parts & labour warranty</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Life-time support</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-6 text-center">
+                <a href="https://wa.me/918006999805?text=I%20want%20to%20know%20more%20about%20slush%20machines" 
+                   class="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition">
+                  <i class="fab fa-whatsapp mr-2"></i>Contact Us About Machines
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Serving Accessories Section */}
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">
+              <i class="fas fa-box text-brand-red mr-3"></i>
+              Serving Accessories
+            </h2>
+            <p class="text-xl text-gray-600 mb-2">Everything you need to serve your customers</p>
+            <p class="text-2xl font-bold text-green-600">FREE for our business partners! 🎁</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">🥤</div>
+              <h3 class="font-bold">Classic Cup</h3>
+            </div>
+
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">🧃</div>
+              <h3 class="font-bold">Lid</h3>
+            </div>
+
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">☕</div>
+              <h3 class="font-bold">Paper Cup</h3>
+            </div>
+
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">🧻</div>
+              <h3 class="font-bold">Tissues</h3>
+            </div>
+
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">🥄</div>
+              <h3 class="font-bold">Spoon</h3>
+            </div>
+
+            <div class="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+              <div class="text-6xl mb-3">🥤</div>
+              <h3 class="font-bold">Straw</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Slush Business?</h2>
+          <p class="text-xl mb-8 opacity-90">Choose your partnership model and get started today!</p>
+          <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="/retail" class="bg-white text-brand-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
+              <i class="fas fa-store mr-2"></i>Retail Partnership
+            </a>
+            <a href="/distributor" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition">
+              <i class="fas fa-truck mr-2"></i>Become a Distributor
+            </a>
+            <a href="https://wa.me/918006999805" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition">
+              <i class="fab fa-whatsapp mr-2"></i>WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-3 gap-8 mb-6">
+            <div>
+              <img src="/logo-simple.png" alt="London Slush" class="h-24 mb-4" />
+              <p class="text-gray-400">Premium Frozen Beverage Brand</p>
+            </div>
+            <div>
+              <h3 class="font-bold mb-3">Quick Links</h3>
+              <ul class="space-y-2">
+                <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+                <li><a href="/products" class="text-gray-400 hover:text-white">Products</a></li>
+                <li><a href="/retail" class="text-gray-400 hover:text-white">Retail Partners</a></li>
+                <li><a href="/distributor" class="text-gray-400 hover:text-white">Distributors</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold mb-3">Contact Us</h3>
+              <ul class="space-y-2 text-gray-400">
+                <li><i class="fas fa-phone mr-2"></i><a href="tel:8006999805" class="hover:text-white">800-699-9805</a></li>
+                <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@londonslush.com" class="hover:text-white">info@londonslush.com</a></li>
+                <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/918006999805" class="hover:text-white">WhatsApp</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-gray-800 pt-6 text-center text-gray-500">
+            <p>&copy; 2026 London Slush by Dravya Roots Pvt Ltd. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </>,
+    { title: 'London Slush Products - 11 Delicious Flavors & Premium Equipment' }
   )
 })
 
