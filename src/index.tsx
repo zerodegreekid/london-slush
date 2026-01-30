@@ -129,7 +129,7 @@ app.get('/thank-you', (c) => {
       <nav class="bg-white/80 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-0 py-0 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
         </div>
       </nav>
@@ -267,7 +267,7 @@ app.get('/', (c) => {
       <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-0 py-0 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
@@ -634,7 +634,7 @@ app.get('/', (c) => {
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <a href="/">
-                <img src="/logo.png" alt="London Slush" class="h-48 mb-4" />
+                <img src="/logo.png" alt="London Slush" class="h-24 mb-4" />
               </a>
               <p class="text-gray-400 text-sm">
                 Premium beverage franchise opportunities across India. Build your profitable business with us.
@@ -706,7 +706,7 @@ app.get('/retail', (c) => {
       <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-0 py-0 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
@@ -1260,7 +1260,7 @@ app.get('/distributor', (c) => {
       <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-0 py-0 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
