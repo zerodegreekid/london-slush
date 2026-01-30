@@ -129,7 +129,7 @@ app.get('/thank-you', (c) => {
       <nav class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
         </div>
       </nav>
@@ -267,7 +267,7 @@ app.get('/', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <div class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </div>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
@@ -600,8 +600,8 @@ app.get('/', (c) => {
             Join 150+ profitable partners across India. Get started in just 7 days.
           </p>
           <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="#" class="bg-white text-brand-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition inline-block">
-              <i class="fas fa-download mr-2"></i>Download Investment Guide
+            <a href="https://wa.me/918006999805?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush%20partnership" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition inline-block">
+              <i class="fab fa-whatsapp mr-2"></i>WhatsApp Us Now
             </a>
             <a href="tel:8006999805" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition inline-block">
               <i class="fas fa-phone mr-2"></i>Call: 800-699-9805
@@ -620,7 +620,7 @@ app.get('/', (c) => {
         <div class="container mx-auto px-4">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <img src="/logo.png" alt="London Slush" class="h-12 mb-4" />
+              <img src="/logo.png" alt="London Slush" class="h-24 mb-4" />
               <p class="text-gray-400 text-sm">
                 Premium beverage franchise opportunities across India. Build your profitable business with us.
               </p>
@@ -679,7 +679,7 @@ app.get('/retail', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
@@ -1233,7 +1233,7 @@ app.get('/distributor', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
