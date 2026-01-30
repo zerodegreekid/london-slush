@@ -124,10 +124,58 @@ export const renderer = jsxRenderer(({ children, title }) => {
               }
             }
             
+            /* Products Page Animations */
+            .animate-float {
+              animation: float 6s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+              0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+              }
+              50% {
+                transform: translateY(-20px) rotate(5deg);
+              }
+            }
+            
+            .animate-bounce-subtle {
+              animation: bounceSubtle 2s ease-in-out infinite;
+            }
+            
+            @keyframes bounceSubtle {
+              0%, 100% {
+                transform: translateY(0);
+              }
+              50% {
+                transform: translateY(-10px);
+              }
+            }
+            
+            .animate-spin-slow {
+              animation: spinSlow 8s linear infinite;
+            }
+            
+            @keyframes spinSlow {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+            
+            /* Shadow Utilities */
+            .shadow-3xl {
+              box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+            }
+            
             /* Reduced Motion Support */
             @media (prefers-reduced-motion: reduce) {
               .animate-fade-in,
-              .animate-bounce {
+              .animate-bounce,
+              .animate-float,
+              .animate-bounce-subtle,
+              .animate-spin-slow {
                 animation: none;
               }
               
