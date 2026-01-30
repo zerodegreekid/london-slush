@@ -126,7 +126,7 @@ app.get('/thank-you', (c) => {
   return c.render(
     <>
       {/* Navigation */}
-      <nav class="bg-white shadow-md">
+      <nav class="bg-white/80 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
@@ -264,7 +264,7 @@ app.get('/', (c) => {
   return c.render(
     <>
       {/* Navigation */}
-      <nav class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
@@ -680,7 +680,7 @@ app.get('/retail', (c) => {
   return c.render(
     <>
       {/* Navigation */}
-      <nav class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
@@ -1234,7 +1234,7 @@ app.get('/distributor', (c) => {
   return c.render(
     <>
       {/* Navigation */}
-      <nav class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
