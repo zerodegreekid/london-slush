@@ -1938,21 +1938,29 @@ app.get('/distributor', (c) => {
 app.get('/products', (c) => {
   return c.html(
     <>
-      {/* Navigation */}
+      {/* Navigation - Matches Homepage */}
       <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="/" class="flex items-center">
-            <img src="/logo.png" alt="London Slush" class="h-24" />
+          <a href="/" class="flex items-center space-x-2">
+            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
           </a>
           <div class="hidden md:flex space-x-6 items-center">
-            <a href="/#features" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
+            <a href="/#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
             <a href="/products" class="text-brand-red font-medium">Products</a>
             <a href="/#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
             <a href="/#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
-            <a href="https://wa.me/918006999805" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition">
-              <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+            <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-semibold flex items-center space-x-2">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="tel:8006999805" class="border-2 border-gray-700 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-700 hover:text-white transition font-semibold flex items-center space-x-2">
+              <i class="fas fa-phone"></i>
+              <span>Call</span>
             </a>
           </div>
+          <button class="md:hidden text-gray-700">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
         </div>
       </nav>
 
