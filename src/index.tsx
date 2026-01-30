@@ -127,7 +127,7 @@ app.get('/thank-you', (c) => {
     <>
       {/* Navigation */}
       <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
@@ -265,7 +265,7 @@ app.get('/', (c) => {
     <>
       {/* Navigation */}
       <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
@@ -681,7 +681,7 @@ app.get('/retail', (c) => {
     <>
       {/* Navigation */}
       <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
@@ -1235,7 +1235,7 @@ app.get('/distributor', (c) => {
     <>
       {/* Navigation */}
       <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="container mx-auto px-1 py-1 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
             <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
