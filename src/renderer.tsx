@@ -6,8 +6,28 @@ export const renderer = jsxRenderer(({ children, title }) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title || 'London Slush - Premium Franchise & Business Opportunities'}</title>
-        <meta name="description" content="Start a profitable beverage business with London Slush. Franchise opportunities, retail partnerships, and distributor programs across India. Low-risk, high-margin model." />
+        <title>{title || 'London Slush | Premium Frozen Beverage Franchise India | 60-70% Margins'}</title>
+        <meta name="description" content="Start a profitable beverage business with London Slush. ₹0-₹15L investment, 60-70% margins, refundable security, 150+ partners across India. Retail & distributor opportunities available." />
+        
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/logo-circle.png" />
+        <link rel="apple-touch-icon" href="/logo-circle.png" />
+        
+        {/* Open Graph / Social Media Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title || 'London Slush | Premium Frozen Beverage Franchise India'} />
+        <meta property="og:description" content="Join 150+ profitable partners. ₹0-₹15L investment, 60-70% margins, complete support. Retail & distributor opportunities across India." />
+        <meta property="og:image" content="/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title || 'London Slush | Premium Frozen Beverage Franchise India'} />
+        <meta name="twitter:description" content="Join 150+ profitable partners. Start your profitable beverage business today." />
+        <meta name="twitter:image" content="/logo.png" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="keywords" content="frozen beverage franchise, slush franchise India, beverage business, retail partnership, distributor opportunity, profitable franchise, London Slush" />
+        <meta name="author" content="Dravya Roots Pvt Ltd" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://londonslush.com/" />
         
         {/* Tailwind CSS */}
         <script src="https://cdn.tailwindcss.com"></script>

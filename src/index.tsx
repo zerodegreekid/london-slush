@@ -273,8 +273,13 @@ app.get('/', (c) => {
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
             <a href="#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
-            <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition font-semibold">
-              <i class="fas fa-phone mr-2"></i>Call Now
+            <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-semibold flex items-center space-x-2">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="tel:8006999805" class="border-2 border-gray-700 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-700 hover:text-white transition font-semibold flex items-center space-x-2">
+              <i class="fas fa-phone"></i>
+              <span>Call</span>
             </a>
           </div>
           <button class="md:hidden text-gray-700">
@@ -340,22 +345,22 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            {/* Primary CTA */}
+            {/* Primary CTA - WhatsApp First */}
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <a 
-                href="#business-paths" 
-                class="bg-brand-red hover:bg-red-700 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition transform hover:scale-105 flex items-center space-x-3"
-              >
-                <span>Explore the Opportunity</span>
-                <i class="fas fa-arrow-down"></i>
-              </a>
               <a 
                 href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" 
                 target="_blank"
-                class="bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition transform hover:scale-105 flex items-center space-x-3"
+                class="bg-green-500 hover:bg-green-600 text-white px-12 py-6 rounded-full font-bold text-2xl shadow-2xl transition transform hover:scale-110 flex items-center space-x-3 pulse-animation"
               >
-                <i class="fab fa-whatsapp text-2xl"></i>
-                <span>Chat Now</span>
+                <i class="fab fa-whatsapp text-3xl"></i>
+                <span>Start WhatsApp Chat</span>
+              </a>
+              <a 
+                href="#business-paths" 
+                class="border-2 border-white hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-md transition transform hover:scale-105 flex items-center space-x-2"
+              >
+                <span>View Options</span>
+                <i class="fas fa-arrow-down"></i>
               </a>
             </div>
 
@@ -589,6 +594,10 @@ app.get('/', (c) => {
               </p>
             </div>
           </div>
+          
+          <p class="text-center text-sm text-gray-500 mt-8 max-w-3xl mx-auto">
+            <i class="fas fa-info-circle mr-1"></i> Partner testimonials represent typical results. Individual outcomes may vary based on location, effort, and market conditions.
+          </p>
         </div>
       </section>
 
@@ -602,11 +611,13 @@ app.get('/', (c) => {
             Join 150+ profitable partners across India. Get started in just 7 days.
           </p>
           <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="https://wa.me/918006999805?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush%20partnership" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition inline-block">
-              <i class="fab fa-whatsapp mr-2"></i>WhatsApp Us Now
+            <a href="https://wa.me/918006999805?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush%20partnership" target="_blank" class="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-green-600 transition inline-flex items-center space-x-2 shadow-xl transform hover:scale-105">
+              <i class="fab fa-whatsapp text-2xl"></i>
+              <span>WhatsApp Us Now</span>
             </a>
-            <a href="tel:8006999805" class="bg-brand-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition inline-block">
-              <i class="fas fa-phone mr-2"></i>Call: 800-699-9805
+            <a href="tel:8006999805" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-brand-blue transition inline-flex items-center space-x-2">
+              <i class="fas fa-phone"></i>
+              <span>Call: 800-699-9805</span>
             </a>
           </div>
         </div>
