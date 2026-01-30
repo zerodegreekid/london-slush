@@ -818,10 +818,18 @@ app.get('/', (c) => {
                 <li><i class="fas fa-map-marker-alt mr-2"></i>Dravya Roots Pvt Ltd</li>
               </ul>
               <div class="flex space-x-4 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/londonslushindia" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-blue-500 text-xl transition-colors" aria-label="Facebook">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/londonslushindia/" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-pink-500 text-xl transition-colors" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@londonslush?si=XvUmEpcN6_IACAvN" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-red-500 text-xl transition-colors" aria-label="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -2734,27 +2742,67 @@ app.get('/products', (c) => {
       {/* Footer */}
       <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4">
-          <div class="grid md:grid-cols-3 gap-8 mb-6">
+          <div class="grid md:grid-cols-4 gap-8 mb-6">
             <div>
               <img src="/logo-simple.png" alt="London Slush" class="h-24 mb-4" />
-              <p class="text-gray-400">Premium Frozen Beverage Brand</p>
+              <p class="text-gray-400 mb-4">Premium Frozen Beverage Brand</p>
+              
+              {/* Social Media Links */}
+              <div class="flex gap-3">
+                <a href="https://www.facebook.com/londonslushindia" target="_blank" rel="noopener noreferrer" 
+                   class="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110"
+                   aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/londonslushindia/" target="_blank" rel="noopener noreferrer" 
+                   class="bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110"
+                   aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@londonslush?si=XvUmEpcN6_IACAvN" target="_blank" rel="noopener noreferrer" 
+                   class="bg-red-600 hover:bg-red-700 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110"
+                   aria-label="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
             </div>
             <div>
               <h3 class="font-bold mb-3">Quick Links</h3>
               <ul class="space-y-2">
-                <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
-                <li><a href="/products" class="text-gray-400 hover:text-white">Products</a></li>
-                <li><a href="/retail" class="text-gray-400 hover:text-white">Retail Partners</a></li>
-                <li><a href="/distributor" class="text-gray-400 hover:text-white">Distributors</a></li>
+                <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+                <li><a href="/products" class="text-gray-400 hover:text-white transition">Products</a></li>
+                <li><a href="/retail" class="text-gray-400 hover:text-white transition">Retail Partners</a></li>
+                <li><a href="/distributor" class="text-gray-400 hover:text-white transition">Distributors</a></li>
               </ul>
             </div>
             <div>
               <h3 class="font-bold mb-3">Contact Us</h3>
               <ul class="space-y-2 text-gray-400">
-                <li><i class="fas fa-phone mr-2"></i><a href="tel:8006999805" class="hover:text-white">800-699-9805</a></li>
-                <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@londonslush.com" class="hover:text-white">info@londonslush.com</a></li>
-                <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/918006999805" class="hover:text-white">WhatsApp</a></li>
+                <li><i class="fas fa-phone mr-2"></i><a href="tel:8006999805" class="hover:text-white transition">800-699-9805</a></li>
+                <li><i class="fas fa-envelope mr-2"></i><a href="mailto:info@londonslush.com" class="hover:text-white transition">info@londonslush.com</a></li>
+                <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/918006999805" class="hover:text-white transition">WhatsApp</a></li>
               </ul>
+            </div>
+            <div>
+              <h3 class="font-bold mb-3">Follow Us</h3>
+              <p class="text-gray-400 text-sm mb-3">Stay connected for latest updates, flavors, and offers!</p>
+              <div class="space-y-2">
+                <a href="https://www.facebook.com/londonslushindia" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center text-gray-400 hover:text-blue-500 transition">
+                  <i class="fab fa-facebook mr-2 text-lg"></i>
+                  <span class="text-sm">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/londonslushindia/" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center text-gray-400 hover:text-pink-500 transition">
+                  <i class="fab fa-instagram mr-2 text-lg"></i>
+                  <span class="text-sm">Instagram</span>
+                </a>
+                <a href="https://youtube.com/@londonslush?si=XvUmEpcN6_IACAvN" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center text-gray-400 hover:text-red-500 transition">
+                  <i class="fab fa-youtube mr-2 text-lg"></i>
+                  <span class="text-sm">YouTube</span>
+                </a>
+              </div>
             </div>
           </div>
           <div class="border-t border-gray-800 pt-6 text-center text-gray-500">
@@ -2763,7 +2811,7 @@ app.get('/products', (c) => {
               <p><strong>London Slush</strong></p>
               <p>Camellia Foods LTD, Company Registration: 13675105B1</p>
               <p>Business Centre, Suite 206 Davyfield Road, Blackburn, BB1 2QY, United Kingdom</p>
-              <p class="mt-2"><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:info@londonslush.com" class="text-brand-light-blue hover:text-white">info@londonslush.com</a></p>
+              <p class="mt-2"><i class="fas fa-envelope mr-2"></i>Email: <a href="mailto:info@londonslush.com" class="text-brand-light-blue hover:text-white transition">info@londonslush.com</a></p>
             </div>
             <p class="text-xs">&copy; 2026 London Slush by Dravya Roots Pvt Ltd (India Operations). All rights reserved.</p>
             <p class="text-xs mt-1">UK Operations: Camellia Foods LTD | India Partner: Dravya Roots Pvt Ltd</p>
