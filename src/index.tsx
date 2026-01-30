@@ -129,7 +129,7 @@ app.get('/thank-you', (c) => {
       <nav class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
         </div>
       </nav>
@@ -266,9 +266,9 @@ app.get('/', (c) => {
       {/* Navigation */}
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
-          </div>
+          <a href="/" class="flex items-center space-x-2">
+            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
+          </a>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
@@ -308,7 +308,9 @@ app.get('/', (c) => {
           <div class="max-w-5xl mx-auto space-y-8 animate-fade-in">
             {/* Logo */}
             <div class="flex justify-center mb-6">
-              <img src="/logo.png" alt="London Slush" class="h-24 md:h-32 drop-shadow-2xl" />
+              <a href="/">
+                <img src="/logo.png" alt="London Slush" class="h-48 md:h-64 drop-shadow-2xl" />
+              </a>
             </div>
 
             {/* Main Headline */}
@@ -620,7 +622,9 @@ app.get('/', (c) => {
         <div class="container mx-auto px-4">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <img src="/logo.png" alt="London Slush" class="h-24 mb-4" />
+              <a href="/">
+                <img src="/logo.png" alt="London Slush" class="h-48 mb-4" />
+              </a>
               <p class="text-gray-400 text-sm">
                 Premium beverage franchise opportunities across India. Build your profitable business with us.
               </p>
@@ -679,7 +683,7 @@ app.get('/retail', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
@@ -1233,7 +1237,7 @@ app.get('/distributor', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-48 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
