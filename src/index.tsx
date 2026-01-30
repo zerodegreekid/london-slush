@@ -300,8 +300,8 @@ app.get('/', (c) => {
           Your browser does not support the video tag.
         </video>
 
-        {/* Dark Overlay for Text Readability */}
-        <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
+        {/* Dark Overlay for Text Readability - Enhanced */}
+        <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
 
         {/* Hero Content */}
         <div class="container mx-auto px-4 relative z-10 text-center text-white">
@@ -315,7 +315,7 @@ app.get('/', (c) => {
 
             {/* Main Headline */}
             <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg">
-              Born in <span class="text-yellow-300">London</span>.<br/>
+              Inspired by <span class="text-yellow-300">London</span>.<br/>
               Crafted for <span class="text-yellow-300">India</span>.
             </h1>
 
@@ -332,11 +332,11 @@ app.get('/', (c) => {
               </div>
               <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
                 <i class="fas fa-chart-line text-green-400"></i>
-                <span class="font-semibold">60-70% Margins*</span>
+                <span class="font-semibold">60-70% Margins<sup class="text-xs">*</sup></span>
               </div>
               <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
                 <i class="fas fa-shield-alt text-blue-400"></i>
-                <span class="font-semibold">Refundable*</span>
+                <span class="font-semibold">Refundable<sup class="text-xs">*</sup></span>
               </div>
             </div>
 
@@ -412,11 +412,11 @@ app.get('/', (c) => {
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Model 2: Free Lookout Plan (3 months)</span>
+                    <span>Model 2: 3-Month Trial Program</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
-                    <span>Pay only for syrup in lookout plan</span>
+                    <span>Pay only for syrup in trial period</span>
                   </div>
                   <div class="flex items-center space-x-2 text-sm">
                     <i class="fas fa-check text-green-600"></i>
@@ -632,19 +632,19 @@ app.get('/', (c) => {
             <div>
               <h4 class="font-bold text-lg mb-4">Quick Links</h4>
               <ul class="space-y-2 text-gray-400">
+                <li><a href="/" class="hover:text-white">Home</a></li>
                 <li><a href="/retail" class="hover:text-white">Retail Partners</a></li>
                 <li><a href="/distributor" class="hover:text-white">Distributors</a></li>
-                <li><a href="#" class="hover:text-white">About Us</a></li>
-                <li><a href="#" class="hover:text-white">Contact</a></li>
+                <li><a href="#why-london-slush" class="hover:text-white">Why Us</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold text-lg mb-4">Support</h4>
+              <h4 class="font-bold text-lg mb-4">Get Started</h4>
               <ul class="space-y-2 text-gray-400">
-                <li><a href="#" class="hover:text-white">FAQs</a></li>
-                <li><a href="#" class="hover:text-white">Partner Login</a></li>
-                <li><a href="#" class="hover:text-white">Training</a></li>
-                <li><a href="#" class="hover:text-white">Contact</a></li>
+                <li><a href="https://wa.me/918006999805?text=Hi%2C%20I%27m%20interested%20in%20London%20Slush" class="hover:text-white">WhatsApp Us</a></li>
+                <li><a href="tel:8006999805" class="hover:text-white">Call Now</a></li>
+                <li><a href="mailto:info@londonslush.com" class="hover:text-white">Email Us</a></li>
+                <li><a href="#business-paths" class="hover:text-white">View Opportunities</a></li>
               </ul>
             </div>
             <div>
@@ -662,8 +662,20 @@ app.get('/', (c) => {
               </div>
             </div>
           </div>
+          
+          {/* Legal Disclaimer */}
+          <div class="border-t border-gray-800 pt-6 pb-4">
+            <div class="max-w-4xl mx-auto text-gray-400 text-xs space-y-2">
+              <p class="font-semibold text-sm text-gray-300">Important Disclaimers:</p>
+              <p><strong>* Refundable Investment:</strong> Subject to distributor agreement terms, performance criteria, and machine return conditions. Refund processing may take 30-90 days after agreement termination.</p>
+              <p><strong>* Profit Margins:</strong> 60-70% margins are estimates based on recommended retail pricing minus cost of goods. Actual margins may vary based on local pricing, operational costs, and business management.</p>
+              <p><strong>About London Slush:</strong> London Slush is a premium frozen beverage brand operated by <strong>Dravya Roots Pvt Ltd</strong> (India). The brand name is inspired by London's beverage culture and adapted for the Indian market.</p>
+            </div>
+          </div>
+          
           <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2026 London Slush. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms & Conditions</a></p>
+            <p>&copy; 2026 London Slush by Dravya Roots Pvt Ltd. All rights reserved.</p>
+            <p class="mt-2 text-xs">For partnership inquiries: Call 800-699-9805 | WhatsApp +91-800-699-9805 | Email info@londonslush.com</p>
           </div>
         </div>
       </footer>
