@@ -129,7 +129,7 @@ app.get('/thank-you', (c) => {
       <nav class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.svg" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
           </a>
         </div>
       </nav>
@@ -243,7 +243,7 @@ app.get('/thank-you', (c) => {
       {/* Footer */}
       <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4 text-center">
-          <img src="/logo.svg" alt="London Slush" class="h-16 mx-auto mb-4 brightness-0 invert" />
+          <img src="/logo.png" alt="London Slush" class="h-16 mx-auto mb-4 brightness-0 invert" />
           <p class="text-gray-400 mb-4">
             <a href="/" class="hover:text-white">Back to Home</a> | 
             <a href="tel:8006999805" class="hover:text-white ml-2">800-699-9805</a> | 
@@ -267,7 +267,7 @@ app.get('/', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <div class="flex items-center space-x-2">
-            <img src="/logo.svg" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
           </div>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
@@ -308,7 +308,7 @@ app.get('/', (c) => {
           <div class="max-w-5xl mx-auto space-y-8 animate-fade-in">
             {/* Logo */}
             <div class="flex justify-center mb-6">
-              <img src="/logo.svg" alt="London Slush" class="h-24 md:h-32 drop-shadow-2xl" />
+              <img src="/logo.png" alt="London Slush" class="h-24 md:h-32 drop-shadow-2xl" />
             </div>
 
             {/* Main Headline */}
@@ -620,7 +620,7 @@ app.get('/', (c) => {
         <div class="container mx-auto px-4">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <img src="/logo.svg" alt="London Slush" class="h-12 mb-4" />
+              <img src="/logo.png" alt="London Slush" class="h-12 mb-4" />
               <p class="text-gray-400 text-sm">
                 Premium beverage franchise opportunities across India. Build your profitable business with us.
               </p>
@@ -679,7 +679,7 @@ app.get('/retail', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.svg" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
@@ -1233,7 +1233,7 @@ app.get('/distributor', (c) => {
       <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.svg" alt="London Slush" class="h-12 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-12 w-auto" />
           </a>
           <a href="tel:8006999805" class="bg-brand-red text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>800-699-9805
