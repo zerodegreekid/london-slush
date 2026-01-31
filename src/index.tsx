@@ -4,6 +4,9 @@ import { renderer } from './renderer'
 
 type Bindings = {
   DB: D1Database;
+  GOOGLE_SHEETS_CREDENTIALS?: string;
+  GOOGLE_SHEET_ID?: string;
+  SHEETS_ENABLED?: string;
 }
 
 const app = new Hono<{ Bindings: Bindings }>()
@@ -14,6 +17,175 @@ app.use('/api/*', cors())
 // =============================================
 // API ROUTES - FORM SUBMISSION HANDLERS
 // =============================================
+
+// Helper function to create JWT for Google OAuth2
+async function createGoogleJWT(credentials: any): Promise<string> {
+  const header = {
+    alg: 'RS256',
+    typ: 'JWT'
+  }
+  
+  const now = Math.floor(Date.now() / 1000)
+  const payload = {
+    iss: credentials.client_email,
+    scope: 'https://www.googleapis.com/auth/spreadsheets',
+    aud: 'https://oauth2.googleapis.com/token',
+    exp: now + 3600,
+    iat: now
+  }
+  
+  // Base64URL encode header and payload
+  const base64UrlEncode = (obj: any) => {
+    return btoa(JSON.stringify(obj))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=/g, '')
+  }
+  
+  const encodedHeader = base64UrlEncode(header)
+  const encodedPayload = base64UrlEncode(payload)
+  const dataToSign = `${encodedHeader}.${encodedPayload}`
+  
+  // Import private key
+  const privateKey = credentials.private_key
+    .replace(/\\n/g, '\n')
+  
+  // Convert PEM to binary
+  const pemContents = privateKey
+    .replace('-----BEGIN PRIVATE KEY-----', '')
+    .replace('-----END PRIVATE KEY-----', '')
+    .replace(/\s/g, '')
+  
+  const binaryDer = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0))
+  
+  // Import key for signing
+  const cryptoKey = await crypto.subtle.importKey(
+    'pkcs8',
+    binaryDer,
+    {
+      name: 'RSASSA-PKCS1-v1_5',
+      hash: 'SHA-256'
+    },
+    false,
+    ['sign']
+  )
+  
+  // Sign the data
+  const signature = await crypto.subtle.sign(
+    'RSASSA-PKCS1-v1_5',
+    cryptoKey,
+    new TextEncoder().encode(dataToSign)
+  )
+  
+  // Base64URL encode signature
+  const signatureArray = new Uint8Array(signature)
+  const signatureBase64 = btoa(String.fromCharCode(...signatureArray))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=/g, '')
+  
+  return `${dataToSign}.${signatureBase64}`
+}
+
+// Helper function to get Google OAuth2 access token
+async function getGoogleAccessToken(credentials: any): Promise<string | null> {
+  try {
+    const jwt = await createGoogleJWT(credentials)
+    
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+        assertion: jwt
+      })
+    })
+    
+    if (!tokenResponse.ok) {
+      const errorText = await tokenResponse.text()
+      console.error('❌ Google OAuth token request failed:', errorText)
+      return null
+    }
+    
+    const { access_token } = await tokenResponse.json() as { access_token: string }
+    return access_token
+    
+  } catch (error) {
+    console.error('❌ Error getting Google access token:', error)
+    return null
+  }
+}
+
+// Helper function to append lead to Google Sheets
+async function appendToGoogleSheet(
+  credentials: string,
+  spreadsheetId: string,
+  leadData: any
+) {
+  try {
+    console.log('🔄 Starting Google Sheets sync...')
+    
+    // Parse credentials
+    const creds = JSON.parse(credentials)
+    
+    // Get OAuth2 access token
+    const accessToken = await getGoogleAccessToken(creds)
+    if (!accessToken) {
+      console.error('❌ Failed to get Google access token')
+      return false
+    }
+    
+    console.log('✅ Got Google access token')
+    
+    // Prepare row data
+    const rowData = [
+      leadData.id || '',
+      leadData.name || '',
+      leadData.phone || '',
+      leadData.email || '',
+      leadData.state || '',
+      leadData.district_pin || '',
+      leadData.investment_range || '',
+      leadData.timeline || '',
+      leadData.experience_years || '',
+      leadData.current_business || '',
+      leadData.outlet_count || '',
+      leadData.business_type || '',
+      leadData.notes || '',
+      leadData.created_at || new Date().toISOString(),
+      leadData.priority || 'HIGH'
+    ]
+    
+    // Append to Google Sheets
+    const sheetsResponse = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1:append?valueInputOption=RAW`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          values: [rowData]
+        })
+      }
+    )
+    
+    if (!sheetsResponse.ok) {
+      const errorText = await sheetsResponse.text()
+      console.error('❌ Google Sheets append failed:', errorText)
+      return false
+    }
+    
+    const result = await sheetsResponse.json()
+    console.log('✅ Successfully synced to Google Sheets:', result)
+    return true
+    
+  } catch (error) {
+    console.error('❌ Google Sheets sync error:', error)
+    return false
+  }
+}
 
 // Helper function to send email notifications
 async function sendEmailNotification(
@@ -246,6 +418,34 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
       sendEmailNotification('info@londonslush.com', emailSubject, emailHtml, emailText),
       sendEmailNotification('support@londonslush.com', emailSubject, emailHtml, emailText)
     ]).catch(err => console.error('Email notification error:', err))
+
+    // Sync to Google Sheets (if enabled)
+    const { GOOGLE_SHEETS_CREDENTIALS, GOOGLE_SHEET_ID, SHEETS_ENABLED } = c.env
+    if (SHEETS_ENABLED === 'true' && GOOGLE_SHEETS_CREDENTIALS && GOOGLE_SHEET_ID) {
+      const leadData = {
+        id: '', // Auto-generated in sheet
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        state: formData.state,
+        district_pin: formData.district_pin,
+        investment_range: formData.investment_range,
+        timeline: formData.timeline,
+        experience_years: formData.experience_years,
+        current_business: formData.current_business,
+        outlet_count: formData.outlet_count,
+        business_type: formData.business_type,
+        notes: formData.notes,
+        created_at: new Date().toISOString(),
+        priority: 'HIGH'
+      }
+      
+      // Don't block submission on Google Sheets sync
+      appendToGoogleSheet(GOOGLE_SHEETS_CREDENTIALS, GOOGLE_SHEET_ID, leadData)
+        .catch(err => console.error('Google Sheets sync error (non-blocking):', err))
+    } else {
+      console.log('ℹ️ Google Sheets sync not enabled or not configured')
+    }
 
     // Redirect to thank you page
     return c.redirect(`/thank-you?type=distributor&name=${encodeURIComponent(formData.name as string)}`)
