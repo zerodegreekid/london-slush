@@ -588,7 +588,7 @@ app.get('/', (c) => {
               </span>
             </div>
             <h2 class="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-brand-blue via-brand-red to-purple-600 text-transparent bg-clip-text">
-              11 Delicious Slush Flavors
+              9 Delicious Slush Flavors
             </h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Premium quality syrups with <strong>added Vitamins A, C & E</strong>, gluten-free, allergen-free, and vegetarian-friendly. 
@@ -617,7 +617,7 @@ app.get('/', (c) => {
             {/* Flavor 2 - Exotic Pineapple */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-yellow-500">
               <div class="relative h-72 overflow-hidden">
-                <img src="/exotic-pineapple.jpg" alt="Exotic Pineapple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/sweet-litchi.jpg" alt="Exotic Pineapple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -644,20 +644,6 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            {/* Flavor 4 - Sweet Litchi */}
-            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-pink-500">
-              <div class="relative h-72 overflow-hidden">
-                <img src="/sweet-litchi.jpg" alt="Sweet Litchi Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-extrabold mb-2 text-pink-600">Sweet Litchi</h3>
-                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Fruity Taste Made From Litchi!"</p>
-                <p class="text-gray-700 leading-relaxed">
-                  Real fruit flavor swirling in the cup. Feel like a kid again.
-                </p>
-              </div>
-            </div>
 
             {/* Flavor 5 - Sour Green Apple */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-green-500">
@@ -689,20 +675,6 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            {/* Flavor 7 - Bubble Gum */}
-            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-pink-400">
-              <div class="relative h-72 overflow-hidden">
-                <img src="/icy-cola.jpg" alt="Bubble Gum Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-extrabold mb-2 text-pink-500">Bubble Gum</h3>
-                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Splash With A Bubble Gum Twist!"</p>
-                <p class="text-gray-700 leading-relaxed">
-                  Nostalgic gum candy flavor, mouth-puckering feeling.
-                </p>
-              </div>
-            </div>
 
             {/* Flavor 8 - Simple Strawberry */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-red-500">
