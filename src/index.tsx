@@ -153,28 +153,42 @@ app.post('/api/submit-distributor', async (c) => {
     const formData = await c.req.parseBody()
     const { DB } = c.env
 
-    // Insert lead into database
-    const result = await DB.prepare(`
-      INSERT INTO leads (
-        name, phone, email, city, investment_range, timeline,
-        current_business, experience_years, outlet_count, notes,
-        business_type, source_page, priority, created_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
-    `).bind(
-      formData.name,
-      formData.phone,
-      formData.email,
-      formData.city,
-      formData.investment_range,
-      formData.timeline,
-      formData.current_business || null,
-      formData.experience_years || null,
-      formData.outlet_count || null,
-      formData.notes || null,
-      formData.business_type,
-      formData.source_page,
-      'high' // Distributor leads are always high priority
-    ).run()
+    // Combine state and district_pin into city field for backward compatibility
+    const locationData = formData.state && formData.district_pin 
+      ? `${formData.state} - ${formData.district_pin}`
+      : formData.state || formData.district_pin || 'Not specified'
+
+    // Insert lead into database (if DB is available)
+    if (DB) {
+      try {
+        await DB.prepare(`
+          INSERT INTO leads (
+            name, phone, email, city, investment_range, timeline,
+            current_business, experience_years, outlet_count, notes,
+            business_type, source_page, priority, created_at
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        `).bind(
+          formData.name,
+          formData.phone,
+          formData.email,
+          locationData,
+          formData.investment_range,
+          formData.timeline,
+          formData.current_business || null,
+          formData.experience_years || null,
+          formData.outlet_count || null,
+          formData.notes || null,
+          formData.business_type,
+          formData.source_page,
+          'high' // Distributor leads are always high priority
+        ).run()
+      } catch (dbError) {
+        console.error('Database error (non-critical):', dbError)
+        // Continue with email sending even if DB fails
+      }
+    } else {
+      console.warn('Database not configured - lead will only be sent via email')
+    }
 
     // Send email notification to both addresses
     const emailSubject = `🚨 New Distributor Lead (HIGH PRIORITY): ${formData.name}`
@@ -188,7 +202,8 @@ app.post('/api/submit-distributor', async (c) => {
           <p><strong>Name:</strong> ${formData.name}</p>
           <p><strong>Phone:</strong> <a href="tel:${formData.phone}">${formData.phone}</a></p>
           <p><strong>Email:</strong> <a href="mailto:${formData.email}">${formData.email}</a></p>
-          <p><strong>City:</strong> ${formData.city}</p>
+          <p><strong>State/UT:</strong> ${formData.state || 'Not specified'}</p>
+          <p><strong>District & PIN:</strong> ${formData.district_pin || 'Not specified'}</p>
           <p><strong>Investment Range:</strong> <span style="color: #dc1f26; font-weight: bold;">${formData.investment_range}</span></p>
           <p><strong>Timeline:</strong> ${formData.timeline}</p>
           <p><strong>Current Business:</strong> ${formData.current_business || 'Not specified'}</p>
@@ -211,7 +226,8 @@ app.post('/api/submit-distributor', async (c) => {
 Name: ${formData.name}
 Phone: ${formData.phone}
 Email: ${formData.email}
-City: ${formData.city}
+State/UT: ${formData.state || 'Not specified'}
+District & PIN: ${formData.district_pin || 'Not specified'}
 Investment Range: ${formData.investment_range}
 Timeline: ${formData.timeline}
 Current Business: ${formData.current_business || 'Not specified'}
@@ -235,7 +251,40 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
     return c.redirect(`/thank-you?type=distributor&name=${encodeURIComponent(formData.name as string)}`)
   } catch (error) {
     console.error('Error saving distributor lead:', error)
-    return c.html('<h1>Error submitting form. Please call 800-699-9805</h1>', 500)
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Submission Error - London Slush</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+      </head>
+      <body class="bg-gray-50">
+        <div class="min-h-screen flex items-center justify-center px-4">
+          <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-exclamation-triangle text-red-600 text-3xl"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">Something Went Wrong</h1>
+            <p class="text-gray-600 mb-6">We couldn't process your application at this time. Please try again or contact us directly.</p>
+            <div class="space-y-3">
+              <a href="/distributor" class="block w-full bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+                <i class="fas fa-redo mr-2"></i>Try Again
+              </a>
+              <a href="mailto:support@londonslush.com" class="block w-full bg-gray-100 text-gray-800 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
+                <i class="fas fa-envelope mr-2"></i>Email: support@londonslush.com
+              </a>
+              <a href="tel:8006999805" class="block w-full bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition">
+                <i class="fas fa-phone mr-2"></i>Call: 800-699-9805
+              </a>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
+    `, 500)
   }
 })
 
