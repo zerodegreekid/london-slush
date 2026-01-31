@@ -1060,18 +1060,18 @@ app.get('/', (c) => {
               <p class="font-semibold text-sm text-gray-300">Important Disclaimers:</p>
               <p><strong>* Refundable Investment:</strong> Subject to distributor agreement terms, performance criteria, and machine return conditions. Refund processing may take 30-90 days after agreement termination.</p>
               <p><strong>* Profit Margins:</strong> 60-70% margins are estimates based on recommended retail pricing minus cost of goods. Actual margins may vary based on local pricing, operational costs, and business management.</p>
-              <p><strong>About London Slush:</strong> A premium frozen beverage brand with UK registration (<strong>Camellia Foods LTD, 13675105B1, Blackburn, UK</strong>), operated in India by <strong>Dravya Roots Pvt Ltd</strong>. Our recipes and branding draw inspiration from London's vibrant beverage culture, adapted specifically for the Indian market with local flavors and preferences.</p>
+              <p><strong>About London Slush:</strong> A premium frozen beverage brand with UK registration (<strong>GLEN AQUA LIMITED, 16856544, London, UK</strong>), operated in India by <strong>Dravya Roots Pvt Ltd</strong>. Our recipes and branding draw inspiration from London's vibrant beverage culture, adapted specifically for the Indian market with local flavors and preferences.</p>
             </div>
           </div>
           
           <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
             <div class="mb-3">
               <p class="font-bold text-white text-base mb-2">🇬🇧 UK Registered Office</p>
-              <p class="text-xs"><strong>London Slush - Camellia Foods LTD</strong></p>
-              <p class="text-xs">Company Registration: 13675105B1</p>
-              <p class="text-xs">Business Centre, Suite 206 Davyfield Road, Blackburn, BB1 2QY, United Kingdom</p>
+              <p class="text-xs"><strong>London Slush - GLEN AQUA LIMITED</strong></p>
+              <p class="text-xs">Company Registration: 16856544</p>
+              <p class="text-xs">128 City Road, London, EC1V 2NX, United Kingdom</p>
             </div>
-            <p>&copy; 2026 London Slush | UK: Camellia Foods LTD | India Operations: Dravya Roots Pvt Ltd. All rights reserved.</p>
+            <p>&copy; 2026 London Slush | UK: GLEN AQUA LIMITED | India Operations: Dravya Roots Pvt Ltd. All rights reserved.</p>
             <p class="mt-2 text-xs">For partnership inquiries: Call 800-699-9805 | WhatsApp +91-800-699-9805 | Email info@londonslush.com</p>
           </div>
         </div>
