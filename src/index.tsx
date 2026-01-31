@@ -2011,23 +2011,61 @@ app.get('/distributor', (c) => {
               </div>
 
               <div>
-                <label class="block text-gray-700 font-semibold mb-2">Preferred Territory *</label>
+                <label class="block text-gray-700 font-semibold mb-2">State/UT *</label>
                 <select 
-                  name="city" 
+                  name="state" 
                   required 
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition"
                 >
-                  <option value="">Select territory</option>
-                  <option value="North India">North India (Delhi NCR, Punjab, Haryana)</option>
-                  <option value="Maharashtra">Maharashtra (Mumbai, Pune)</option>
-                  <option value="South India">South India (Bangalore, Chennai, Hyderabad)</option>
-                  <option value="Gujarat">Gujarat (Ahmedabad, Surat)</option>
-                  <option value="Rajasthan">Rajasthan (Jaipur, Jodhpur)</option>
-                  <option value="West Bengal">West Bengal (Kolkata)</option>
-                  <option value="Uttar Pradesh">Uttar Pradesh (Lucknow, Kanpur)</option>
-                  <option value="Madhya Pradesh">Madhya Pradesh (Indore, Bhopal)</option>
-                  <option value="Other">Other (Specify in notes)</option>
+                  <option value="">Select State/Union Territory</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Ladakh">Ladakh</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Puducherry">Puducherry</option>
                 </select>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">District & PIN Code *</label>
+                <input 
+                  type="text" 
+                  name="district_pin" 
+                  required
+                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition"
+                  placeholder="e.g., Mumbai - 400001"
+                />
               </div>
 
               <div>
@@ -2038,10 +2076,9 @@ app.get('/distributor', (c) => {
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition"
                 >
                   <option value="">Select investment range</option>
-                  <option value="50L-75L">₹50L - ₹75L</option>
-                  <option value="75L-1Cr">₹75L - ₹1 Crore</option>
-                  <option value="1Cr-2Cr">₹1 Cr - ₹2 Cr</option>
-                  <option value="2Cr+">₹2 Cr+</option>
+                  <option value="15L-25L">₹15 Lakh – ₹25 Lakh</option>
+                  <option value="25L-40L">₹25 Lakh – ₹40 Lakh</option>
+                  <option value="40L-50L+">₹40 Lakh – ₹50 Lakh+</option>
                 </select>
               </div>
 
