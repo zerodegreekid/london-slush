@@ -311,7 +311,49 @@ Action Required: Contact this lead within 24 hours.
       sendEmailNotification('support@londonslush.com', emailSubject, emailHtml, emailText)
     ]).catch(err => console.error('Email notification error:', err))
 
-    // Redirect to thank you page
+    // 🆕 Sync to Google Sheets via Cloudflare Worker (non-blocking)
+    const syncToWorker = async () => {
+      try {
+        const workerData = {
+          id: '',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || '',
+          state: '', // Retail form doesn't have state
+          district_pin: formData.city, // Use city as district_pin for retail
+          investment_range: formData.investment_range,
+          timeline: formData.timeline,
+          experience_years: '',
+          current_business: formData.current_business,
+          outlet_count: formData.outlet_count,
+          business_type: formData.business_type,
+          notes: formData.notes,
+          priority: 'MEDIUM'
+        }
+        
+        const response = await fetch('https://london-slush.bijnorservices.workers.dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(workerData)
+        })
+        
+        if (response.ok) {
+          const result = await response.json()
+          console.log('✅ Google Sheets sync successful:', result)
+        } else {
+          console.warn('⚠️ Google Sheets sync failed (non-critical):', await response.text())
+        }
+      } catch (error) {
+        console.warn('⚠️ Google Sheets sync error (non-critical):', error)
+      }
+    }
+    
+    // Fire and forget - don't wait for Worker response
+    syncToWorker().catch(err => console.warn('Worker sync error:', err))
+
+    // Redirect to thank you page immediately
     return c.redirect(`/thank-you?type=retail&name=${encodeURIComponent(formData.name as string)}`)
   } catch (error) {
     console.error('Error saving retail lead:', error)
@@ -419,35 +461,50 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
       sendEmailNotification('support@londonslush.com', emailSubject, emailHtml, emailText)
     ]).catch(err => console.error('Email notification error:', err))
 
-    // Sync to Google Sheets (if enabled)
-    const { GOOGLE_SHEETS_CREDENTIALS, GOOGLE_SHEET_ID, SHEETS_ENABLED } = c.env
-    if (SHEETS_ENABLED === 'true' && GOOGLE_SHEETS_CREDENTIALS && GOOGLE_SHEET_ID) {
-      const leadData = {
-        id: '', // Auto-generated in sheet
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        state: formData.state,
-        district_pin: formData.district_pin,
-        investment_range: formData.investment_range,
-        timeline: formData.timeline,
-        experience_years: formData.experience_years,
-        current_business: formData.current_business,
-        outlet_count: formData.outlet_count,
-        business_type: formData.business_type,
-        notes: formData.notes,
-        created_at: new Date().toISOString(),
-        priority: 'HIGH'
+    // 🆕 Sync to Google Sheets via Cloudflare Worker (non-blocking)
+    // This bypasses the 1 KiB secret limit and works across all domains
+    const syncToWorker = async () => {
+      try {
+        const workerData = {
+          id: '',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          state: formData.state,
+          district_pin: formData.district_pin,
+          investment_range: formData.investment_range,
+          timeline: formData.timeline,
+          experience_years: formData.experience_years,
+          current_business: formData.current_business,
+          outlet_count: formData.outlet_count,
+          business_type: formData.business_type,
+          notes: formData.notes,
+          priority: 'HIGH'
+        }
+        
+        const response = await fetch('https://london-slush.bijnorservices.workers.dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(workerData)
+        })
+        
+        if (response.ok) {
+          const result = await response.json()
+          console.log('✅ Google Sheets sync successful:', result)
+        } else {
+          console.warn('⚠️ Google Sheets sync failed (non-critical):', await response.text())
+        }
+      } catch (error) {
+        console.warn('⚠️ Google Sheets sync error (non-critical):', error)
       }
-      
-      // Don't block submission on Google Sheets sync
-      appendToGoogleSheet(GOOGLE_SHEETS_CREDENTIALS, GOOGLE_SHEET_ID, leadData)
-        .catch(err => console.error('Google Sheets sync error (non-blocking):', err))
-    } else {
-      console.log('ℹ️ Google Sheets sync not enabled or not configured')
     }
+    
+    // Fire and forget - don't wait for Worker response
+    syncToWorker().catch(err => console.warn('Worker sync error:', err))
 
-    // Redirect to thank you page
+    // Redirect to thank you page immediately (don't wait for sync)
     return c.redirect(`/thank-you?type=distributor&name=${encodeURIComponent(formData.name as string)}`)
   } catch (error) {
     console.error('Error saving distributor lead:', error)
