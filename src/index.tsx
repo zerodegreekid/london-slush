@@ -1150,7 +1150,6 @@ app.get('/', (c) => {
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
             <a href="#products" class="text-gray-700 hover:text-brand-red font-medium">Products</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
-            <a href="#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
             <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-semibold flex items-center space-x-2">
               <i class="fab fa-whatsapp"></i>
               <span>WhatsApp</span>
@@ -1171,7 +1170,6 @@ app.get('/', (c) => {
             <a href="#why-london-slush" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Why Us</a>
             <a href="#products" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Products</a>
             <a href="#partners" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Our Partners</a>
-            <a href="#contact" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Contact</a>
             <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="block bg-green-500 text-white text-center py-3 rounded-lg hover:bg-green-600 transition font-semibold">
               <i class="fab fa-whatsapp mr-2"></i>WhatsApp
             </a>
