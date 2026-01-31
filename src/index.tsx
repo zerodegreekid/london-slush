@@ -418,12 +418,13 @@ app.get('/', (c) => {
     <>
       {/* Navigation */}
       <nav class="bg-transparent backdrop-blur-md shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-0 py-0 flex items-center justify-between">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
           <a href="/" class="flex items-center space-x-2">
-            <img src="/logo.png" alt="London Slush" class="h-24 w-auto" />
+            <img src="/logo.png" alt="London Slush" class="h-20 w-auto" />
           </a>
           <div class="hidden md:flex space-x-6 items-center">
             <a href="#why-london-slush" class="text-gray-700 hover:text-brand-red font-medium">Why Us</a>
+            <a href="#products" class="text-gray-700 hover:text-brand-red font-medium">Products</a>
             <a href="#partners" class="text-gray-700 hover:text-brand-red font-medium">Our Partners</a>
             <a href="#contact" class="text-gray-700 hover:text-brand-red font-medium">Contact</a>
             <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition font-semibold flex items-center space-x-2">
@@ -435,14 +436,54 @@ app.get('/', (c) => {
               <span>Call</span>
             </a>
           </div>
-          <button class="md:hidden text-gray-700">
+          <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-brand-red transition p-2">
             <i class="fas fa-bars text-2xl"></i>
           </button>
         </div>
+        
+        {/* Mobile Menu */}
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg absolute top-full left-0 right-0 z-50">
+          <div class="container mx-auto px-4 py-4 space-y-3">
+            <a href="#why-london-slush" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Why Us</a>
+            <a href="#products" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Products</a>
+            <a href="#partners" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Our Partners</a>
+            <a href="#contact" class="block text-gray-700 hover:text-brand-red font-medium py-2 border-b border-gray-100">Contact</a>
+            <a href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" target="_blank" class="block bg-green-500 text-white text-center py-3 rounded-lg hover:bg-green-600 transition font-semibold">
+              <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+            </a>
+            <a href="tel:8006999805" class="block border-2 border-gray-700 text-gray-700 text-center py-3 rounded-lg hover:bg-gray-700 hover:text-white transition font-semibold">
+              <i class="fas fa-phone mr-2"></i>Call
+            </a>
+          </div>
+        </div>
       </nav>
+      
+      {/* Mobile Menu JavaScript */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+              menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+              });
+              
+              // Close menu when clicking on a link
+              const menuLinks = mobileMenu.querySelectorAll('a');
+              menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                  mobileMenu.classList.add('hidden');
+                });
+              });
+            }
+          });
+        `
+      }} />
 
-      {/* Hero Section - Video Background */}
-      <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Video Background - FIXED for Mobile */}
+      <section class="relative h-screen min-h-[600px] flex items-center justify-center">
         {/* Background Video */}
         <video 
           autoplay 
@@ -459,68 +500,64 @@ app.get('/', (c) => {
         {/* Dark Overlay for Text Readability - Enhanced */}
         <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70"></div>
 
-        {/* Hero Content */}
-        <div class="container mx-auto px-4 relative z-10 text-center text-white">
-          <div class="max-w-5xl mx-auto space-y-8 animate-fade-in">
-            {/* Logo */}
-            <div class="flex justify-center mb-6">
-              <a href="/">
-                <img src="/logo.png" alt="London Slush" class="h-48 md:h-64 drop-shadow-2xl" />
+        {/* Hero Content - FIXED Container with proper padding */}
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white w-full">
+          <div class="max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in py-8">
+            {/* Logo - FIXED sizing for mobile */}
+            <div class="flex justify-center mb-4 sm:mb-6">
+              <a href="/" class="block">
+                <img 
+                  src="/logo.png" 
+                  alt="London Slush" 
+                  class="h-24 sm:h-32 md:h-40 lg:h-48 w-auto max-w-[85vw] object-contain drop-shadow-2xl" 
+                />
               </a>
             </div>
 
             {/* Main Headline */}
-            <h1 class="text-4xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg px-4">
               Inspired by <span class="text-yellow-300">London</span>.<br/>
               Crafted for <span class="text-yellow-300">India</span>.
             </h1>
 
             {/* Subtext */}
-            <p class="text-xl md:text-3xl text-gray-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md px-4">
               A premium global frozen beverage brand
             </p>
 
             {/* Trust Badges */}
-            <div class="flex flex-wrap justify-center gap-6 py-6">
-              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-6 py-4 sm:py-6 px-4">
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base">
                 <i class="fas fa-star text-yellow-400"></i>
                 <span class="font-semibold">150+ Partners</span>
               </div>
-              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base">
                 <i class="fas fa-chart-line text-green-400"></i>
                 <span class="font-semibold">60-70% Margins<sup class="text-xs">*</sup></span>
               </div>
-              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+              <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base">
                 <i class="fas fa-shield-alt text-blue-400"></i>
                 <span class="font-semibold">Refundable<sup class="text-xs">*</sup></span>
               </div>
             </div>
 
-            {/* Primary CTA - WhatsApp First */}
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            {/* Primary CTA - WhatsApp First - FIXED positioning */}
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2 sm:pt-4 px-4 pb-8 sm:pb-8">
               <a 
                 href="https://wa.me/918006999805?text=I%27m%20interested%20in%20London%20Slush" 
                 target="_blank"
-                class="bg-green-500 hover:bg-green-600 text-white px-12 py-6 rounded-full font-bold text-2xl shadow-2xl transition transform hover:scale-110 flex items-center space-x-3 pulse-animation"
+                class="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-2xl transition transform hover:scale-110 flex items-center space-x-2 pulse-animation w-full sm:w-auto justify-center max-w-xs sm:max-w-sm"
               >
-                <i class="fab fa-whatsapp text-3xl"></i>
+                <i class="fab fa-whatsapp text-xl sm:text-2xl"></i>
                 <span>Start WhatsApp Chat</span>
               </a>
               <a 
                 href="#business-paths" 
-                class="border-2 border-white hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-md transition transform hover:scale-105 flex items-center space-x-2"
+                class="border-2 border-white hover:bg-white/20 text-white px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full font-semibold text-sm sm:text-base backdrop-blur-md transition transform hover:scale-105 flex items-center space-x-2 justify-center w-full sm:w-auto max-w-xs sm:max-w-sm"
               >
                 <span>View Options</span>
                 <i class="fas fa-arrow-down"></i>
               </a>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-              <div class="flex flex-col items-center space-y-2 text-white/80">
-                <span class="text-sm font-medium">Scroll to explore</span>
-                <i class="fas fa-chevron-down text-xl"></i>
-              </div>
             </div>
           </div>
         </div>
@@ -533,6 +570,218 @@ app.get('/', (c) => {
 
       {/* Add spacing after video hero */}
       <div class="bg-white h-8"></div>
+
+      {/* PRODUCTS / FLAVORS SECTION */}
+      <section id="products" class="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+        {/* Background Decoration */}
+        <div class="absolute inset-0 opacity-5">
+          <div class="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-80 h-80 bg-pink-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+          {/* Section Header */}
+          <div class="text-center mb-16">
+            <div class="inline-block mb-4">
+              <span class="bg-gradient-to-r from-brand-blue to-brand-red text-white px-6 py-2 rounded-full text-sm font-bold tracking-wider uppercase shadow-lg">
+                Our Premium Collection
+              </span>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-brand-blue via-brand-red to-purple-600 text-transparent bg-clip-text">
+              11 Delicious Slush Flavors
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Premium quality syrups with <strong>added Vitamins A, C & E</strong>, gluten-free, allergen-free, and vegetarian-friendly. 
+              Crafted to perfection for maximum customer satisfaction.
+            </p>
+          </div>
+
+          {/* Flavors Grid */}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            
+            {/* Flavor 1 - Tangy Orange */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-orange-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/tangy-orange.jpg" alt="Tangy Orange Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-orange-600">Tangy Orange</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Orange Punch – Orange Flavoured Mix!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Perfect balance of fruit and sweet, nostalgic fresh-squeezed taste.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 2 - Exotic Pineapple */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-yellow-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/exotic-pineapple.jpg" alt="Exotic Pineapple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-yellow-600">Exotic Pineapple</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Refreshing Pineapple Slush With A Kick!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Made with real pineapple. A classic, unforgettable taste.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 3 - Icy Cola */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gray-700">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/icy-cola.jpg" alt="Icy Cola Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-gray-700">Icy Cola</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Icy Cola Flavoured Slush With Great Colour & Flavour!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Subtle cola flavor, tropical paradise vibes.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 4 - Sweet Litchi */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-pink-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/sweet-litchi.jpg" alt="Sweet Litchi Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-pink-600">Sweet Litchi</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Fruity Taste Made From Litchi!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Real fruit flavor swirling in the cup. Feel like a kid again.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 5 - Sour Green Apple */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-green-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/sour-green-apple.jpg" alt="Sour Green Apple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-green-600">Sour Green Apple</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Fresh Green Apple Goodness!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Sweet and nostalgic with that post-drink blue tongue.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 6 - Blue Berry */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-blue-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/blue-berry.jpg" alt="Blue Berry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-blue-600">Blue Berry</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"A Mix Of Tropical Flavour Of Berry!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Perfect blue syrup combined with tropical delight.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 7 - Bubble Gum */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-pink-400">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/bubble-gum.jpg" alt="Bubble Gum Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-pink-500">Bubble Gum</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Splash With A Bubble Gum Twist!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Nostalgic gum candy flavor, mouth-puckering feeling.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 8 - Simple Strawberry */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-red-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/simple-strawberry.jpg" alt="Simple Strawberry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-red-600">Simple Strawberry</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Tropical Slush With Strawberry Passion Fruit!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  A reminder of summer in the middle of winter.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 9 - Seven Rainbow */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-purple-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/seven-rainbow.jpg" alt="Seven Rainbow Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-transparent bg-clip-text">Seven Rainbow</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Refreshing Rainbow Slushie!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Personalized slush with more taste and color.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 10 - Awesome Mango */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-yellow-500">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/awesome-mango.jpg" alt="Awesome Mango Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-yellow-500">Awesome Mango</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"A Blend Of Tropical Mango!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Timeless and iconic. Perfectly icy spin on a classic.
+                </p>
+              </div>
+            </div>
+
+            {/* Flavor 11 - Power Blackberry */}
+            <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-purple-700">
+              <div class="relative h-72 overflow-hidden">
+                <img src="/power-blackberry.jpg" alt="Power Blackberry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-extrabold mb-2 text-purple-700">Power Blackberry</h3>
+                <p class="text-sm text-gray-500 mb-3 italic font-medium">"Refreshing Blackberry Slush!"</p>
+                <p class="text-gray-700 leading-relaxed">
+                  Light, subtle flavors paired with classic slush ice.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* CTA Section */}
+          <div class="text-center mt-16">
+            <p class="text-2xl font-bold text-gray-800 mb-6">
+              Ready to bring these flavors to your business?
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/retail" class="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-10 py-4 rounded-full font-bold text-lg hover:from-purple-700 hover:to-purple-800 transition shadow-xl transform hover:scale-105">
+                <i class="fas fa-store mr-2"></i>Get Retail Pricing
+              </a>
+              <a href="/distributor" class="inline-block bg-gradient-to-r from-orange-600 to-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg hover:from-orange-700 hover:to-orange-800 transition shadow-xl transform hover:scale-105">
+                <i class="fas fa-truck mr-2"></i>Become a Distributor
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 2-CHOICE BUSINESS PATHS */}
       <section id="business-paths" class="py-20 bg-gray-50 relative">
