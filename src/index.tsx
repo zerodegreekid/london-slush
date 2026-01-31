@@ -460,6 +460,424 @@ app.get('/thank-you', (c) => {
 })
 
 // =============================================
+// ADMIN DASHBOARD - LEAD MANAGEMENT
+// =============================================
+
+// Admin Dashboard - View All Leads
+app.get('/admin/leads', async (c) => {
+  const { DB } = c.env
+  
+  if (!DB) {
+    return c.html('<h1>Database not configured</h1>', 500)
+  }
+  
+  try {
+    // Get filter parameters
+    const filter = c.req.query('filter') || 'all'
+    const search = c.req.query('search') || ''
+    
+    // Build query based on filter
+    let query = 'SELECT * FROM leads WHERE 1=1'
+    const params: any[] = []
+    
+    if (filter === 'today') {
+      query += " AND date(created_at) = date('now')"
+    } else if (filter === 'week') {
+      query += " AND date(created_at) >= date('now', '-7 days')"
+    } else if (filter === 'month') {
+      query += " AND date(created_at) >= date('now', '-30 days')"
+    } else if (filter === 'distributor') {
+      query += " AND business_type = 'distributor'"
+    } else if (filter === 'retail') {
+      query += " AND business_type = 'retail'"
+    }
+    
+    if (search) {
+      query += " AND (name LIKE ? OR phone LIKE ? OR email LIKE ? OR city LIKE ?)"
+      const searchParam = `%${search}%`
+      params.push(searchParam, searchParam, searchParam, searchParam)
+    }
+    
+    query += " ORDER BY created_at DESC LIMIT 100"
+    
+    const result = await DB.prepare(query).bind(...params).all()
+    const leads = result.results || []
+    
+    // Get statistics
+    const stats = await DB.prepare(`
+      SELECT 
+        COUNT(*) as total,
+        COUNT(CASE WHEN date(created_at) = date('now') THEN 1 END) as today,
+        COUNT(CASE WHEN date(created_at) >= date('now', '-7 days') THEN 1 END) as week,
+        COUNT(CASE WHEN business_type = 'distributor' THEN 1 END) as distributors,
+        COUNT(CASE WHEN business_type = 'retail' THEN 1 END) as retail
+      FROM leads
+    `).first()
+    
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard - London Slush Leads</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+      </head>
+      <body class="bg-gray-50">
+        <!-- Header -->
+        <nav class="bg-white shadow-md">
+          <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <a href="/" class="flex items-center space-x-2">
+                <img src="/logo.png" alt="London Slush" class="h-12 w-auto">
+              </a>
+              <h1 class="text-2xl font-bold text-gray-800">Lead Management</h1>
+            </div>
+            <div class="flex space-x-3">
+              <a href="/admin/leads/export" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                <i class="fas fa-file-excel mr-2"></i>Export CSV
+              </a>
+              <a href="/admin/leads/google-sheets" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                <i class="fab fa-google mr-2"></i>Sync to Sheets
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Statistics -->
+        <div class="container mx-auto px-4 py-6">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+            <div class="bg-white rounded-lg shadow p-4">
+              <div class="text-3xl font-bold text-blue-600">${stats?.total || 0}</div>
+              <div class="text-sm text-gray-600">Total Leads</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+              <div class="text-3xl font-bold text-green-600">${stats?.today || 0}</div>
+              <div class="text-sm text-gray-600">Today</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+              <div class="text-3xl font-bold text-purple-600">${stats?.week || 0}</div>
+              <div class="text-sm text-gray-600">This Week</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+              <div class="text-3xl font-bold text-orange-600">${stats?.distributors || 0}</div>
+              <div class="text-sm text-gray-600">Distributors</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+              <div class="text-3xl font-bold text-red-600">${stats?.retail || 0}</div>
+              <div class="text-sm text-gray-600">Retail</div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="bg-white rounded-lg shadow p-4 mb-6">
+            <form method="GET" class="flex flex-wrap gap-3">
+              <select name="filter" class="px-4 py-2 border rounded-lg" onchange="this.form.submit()">
+                <option value="all" ${filter === 'all' ? 'selected' : ''}>All Leads</option>
+                <option value="today" ${filter === 'today' ? 'selected' : ''}>Today</option>
+                <option value="week" ${filter === 'week' ? 'selected' : ''}>This Week</option>
+                <option value="month" ${filter === 'month' ? 'selected' : ''}>This Month</option>
+                <option value="distributor" ${filter === 'distributor' ? 'selected' : ''}>Distributors Only</option>
+                <option value="retail" ${filter === 'retail' ? 'selected' : ''}>Retail Only</option>
+              </select>
+              <input 
+                type="text" 
+                name="search" 
+                placeholder="Search name, phone, email, city..." 
+                value="${search}"
+                class="flex-1 px-4 py-2 border rounded-lg"
+              >
+              <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                <i class="fas fa-search mr-2"></i>Search
+              </button>
+            </form>
+          </div>
+
+          <!-- Leads Table -->
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">ID</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Phone</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Email</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Location</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Investment</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Type</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created</th>
+                    <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  ${leads.length === 0 ? `
+                    <tr>
+                      <td colspan="9" class="px-4 py-8 text-center text-gray-500">
+                        <i class="fas fa-inbox text-4xl mb-2"></i>
+                        <p>No leads found</p>
+                      </td>
+                    </tr>
+                  ` : leads.map((lead: any) => `
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-4 py-3 text-sm">#${lead.id}</td>
+                      <td class="px-4 py-3 text-sm font-medium">${lead.name}</td>
+                      <td class="px-4 py-3 text-sm">
+                        <a href="tel:${lead.phone}" class="text-blue-600 hover:underline">
+                          ${lead.phone}
+                        </a>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        ${lead.email ? `<a href="mailto:${lead.email}" class="text-blue-600 hover:underline">${lead.email}</a>` : '-'}
+                      </td>
+                      <td class="px-4 py-3 text-sm">${lead.city || '-'}</td>
+                      <td class="px-4 py-3 text-sm">
+                        <span class="px-2 py-1 rounded-full text-xs font-semibold ${
+                          lead.investment_range?.includes('40L') ? 'bg-purple-100 text-purple-700' :
+                          lead.investment_range?.includes('25L') ? 'bg-blue-100 text-blue-700' :
+                          'bg-green-100 text-green-700'
+                        }">
+                          ${lead.investment_range || '-'}
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <span class="px-2 py-1 rounded-full text-xs font-semibold ${
+                          lead.business_type === 'distributor' ? 'bg-orange-100 text-orange-700' : 'bg-purple-100 text-purple-700'
+                        }">
+                          ${lead.business_type}
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm text-gray-600">
+                        ${new Date(lead.created_at).toLocaleDateString('en-IN')}
+                        <br>
+                        <span class="text-xs">${new Date(lead.created_at).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        <div class="flex space-x-2">
+                          <a href="https://wa.me/91${lead.phone}" target="_blank" class="text-green-600 hover:text-green-700">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                          </a>
+                          <a href="tel:${lead.phone}" class="text-blue-600 hover:text-blue-700">
+                            <i class="fas fa-phone text-lg"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
+    `)
+  } catch (error) {
+    console.error('Error fetching leads:', error)
+    return c.html('<h1>Error loading leads</h1>', 500)
+  }
+})
+
+// Export Leads as CSV
+app.get('/admin/leads/export', async (c) => {
+  const { DB } = c.env
+  
+  if (!DB) {
+    return c.text('Database not configured', 500)
+  }
+  
+  try {
+    const result = await DB.prepare('SELECT * FROM leads ORDER BY created_at DESC').all()
+    const leads = result.results || []
+    
+    // Generate CSV
+    const headers = ['ID', 'Name', 'Phone', 'Email', 'Location', 'Investment Range', 'Timeline', 'Experience', 'Business Type', 'Priority', 'Created At']
+    const csv = [
+      headers.join(','),
+      ...leads.map((lead: any) => [
+        lead.id,
+        `"${lead.name}"`,
+        lead.phone,
+        lead.email || '',
+        `"${lead.city || ''}"`,
+        lead.investment_range || '',
+        lead.timeline || '',
+        lead.experience_years || '',
+        lead.business_type || '',
+        lead.priority || '',
+        lead.created_at
+      ].join(','))
+    ].join('\n')
+    
+    return c.text(csv, 200, {
+      'Content-Type': 'text/csv',
+      'Content-Disposition': `attachment; filename="london-slush-leads-${new Date().toISOString().split('T')[0]}.csv"`
+    })
+  } catch (error) {
+    console.error('Error exporting leads:', error)
+    return c.text('Error exporting leads', 500)
+  }
+})
+
+// Google Sheets Sync Page
+app.get('/admin/leads/google-sheets', async (c) => {
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Google Sheets Integration - London Slush</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-gray-50">
+      <!-- Header -->
+      <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+          <div class="flex items-center space-x-4">
+            <a href="/" class="flex items-center space-x-2">
+              <img src="/logo.png" alt="London Slush" class="h-12 w-auto">
+            </a>
+            <h1 class="text-2xl font-bold text-gray-800">Google Sheets Integration</h1>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+          <!-- Integration Status -->
+          <div class="bg-white rounded-lg shadow-lg p-8 mb-6">
+            <div class="flex items-start space-x-4 mb-6">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fab fa-google text-green-600 text-3xl"></i>
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Auto-Sync to Google Sheets</h2>
+                <p class="text-gray-600">Automatically export all leads to a Google Sheet for easy team collaboration and CRM integration.</p>
+              </div>
+            </div>
+
+            <!-- Setup Instructions -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mb-6">
+              <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                <i class="fas fa-info-circle mr-2"></i>
+                Setup Instructions
+              </h3>
+              <ol class="space-y-3 text-blue-900 ml-4">
+                <li class="flex items-start">
+                  <span class="font-bold mr-3">1.</span>
+                  <div>
+                    <strong>Create a Google Sheet</strong>
+                    <p class="text-blue-800 text-sm mt-1">Go to <a href="https://sheets.google.com" target="_blank" class="underline">Google Sheets</a> and create a new spreadsheet named "London Slush Leads"</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="font-bold mr-3">2.</span>
+                  <div>
+                    <strong>Enable Google Sheets API</strong>
+                    <p class="text-blue-800 text-sm mt-1">Go to <a href="https://console.cloud.google.com/apis/library/sheets.googleapis.com" target="_blank" class="underline">Google Cloud Console</a> and enable the Google Sheets API</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="font-bold mr-3">3.</span>
+                  <div>
+                    <strong>Create Service Account</strong>
+                    <p class="text-blue-800 text-sm mt-1">Create a service account and download the JSON credentials</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="font-bold mr-3">4.</span>
+                  <div>
+                    <strong>Share Sheet with Service Account</strong>
+                    <p class="text-blue-800 text-sm mt-1">Share your Google Sheet with the service account email (found in the JSON file)</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="font-bold mr-3">5.</span>
+                  <div>
+                    <strong>Add Credentials to Cloudflare</strong>
+                    <p class="text-blue-800 text-sm mt-1">Store the credentials as Cloudflare Secrets using: <code class="bg-blue-200 px-2 py-1 rounded text-xs">wrangler secret put GOOGLE_SHEETS_CREDENTIALS</code></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Quick Export Option -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="font-bold text-gray-800 mb-3">Quick Export (Manual)</h3>
+              <p class="text-gray-600 mb-4">Don't want to set up API integration? Download leads as CSV and manually import to Google Sheets:</p>
+              <div class="flex space-x-3">
+                <a href="/admin/leads/export" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition flex items-center">
+                  <i class="fas fa-file-excel mr-2"></i>
+                  Download CSV
+                </a>
+                <a href="https://sheets.google.com" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center">
+                  <i class="fab fa-google mr-2"></i>
+                  Open Google Sheets
+                </a>
+              </div>
+              <p class="text-sm text-gray-500 mt-3">
+                <i class="fas fa-lightbulb mr-1"></i>
+                <strong>Tip:</strong> In Google Sheets, go to File → Import → Upload, then select the CSV file.
+              </p>
+            </div>
+
+            <!-- Feature Comparison -->
+            <div class="mt-6">
+              <h3 class="font-bold text-gray-800 mb-3">Feature Comparison</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead class="bg-gray-100">
+                    <tr>
+                      <th class="px-4 py-2 text-left">Feature</th>
+                      <th class="px-4 py-2 text-center">Manual CSV Export</th>
+                      <th class="px-4 py-2 text-center">Auto-Sync (API)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y">
+                    <tr>
+                      <td class="px-4 py-2">Setup Time</td>
+                      <td class="px-4 py-2 text-center">✅ 1 minute</td>
+                      <td class="px-4 py-2 text-center">⚠️ 15 minutes</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2">Real-time Updates</td>
+                      <td class="px-4 py-2 text-center">❌ Manual refresh</td>
+                      <td class="px-4 py-2 text-center">✅ Automatic</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2">Team Collaboration</td>
+                      <td class="px-4 py-2 text-center">✅ Yes</td>
+                      <td class="px-4 py-2 text-center">✅ Yes</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-2">Cost</td>
+                      <td class="px-4 py-2 text-center">✅ Free</td>
+                      <td class="px-4 py-2 text-center">✅ Free</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="mt-6 pt-6 border-t">
+              <a href="/admin/leads" class="text-blue-600 hover:underline flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Lead Dashboard
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `)
+})
+
+// =============================================
 // HOMEPAGE - CRO-OPTIMIZED 3-CHOICE GATEWAY
 // =============================================
 app.get('/', (c) => {

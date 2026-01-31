@@ -3,14 +3,13 @@
   "name": "london-slush",
   "compatibility_date": "2024-01-01",
   "pages_build_output_dir": "./dist",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_flags": ["nodejs_compat"],
   
-  // D1 Database - Temporarily disabled until we create the database
-  // "d1_databases": [
-  //   {
-  //     "binding": "DB",
-  //     "database_name": "london-slush-leads",
-  //     "database_id": "placeholder-will-be-created-on-deploy"
-  //   }
-  // ]
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "london-slush-leads",
+      "database_id": "london-slush-leads"
+    }
+  ]
 }
