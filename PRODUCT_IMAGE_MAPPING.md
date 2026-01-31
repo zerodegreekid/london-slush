@@ -2,33 +2,48 @@
 
 ## Quick Visual Reference
 
-This table shows the **correct** image-to-flavor mapping after fixes:
+This table shows the **correct** image-to-flavor mapping after all fixes:
 
-| Flavor Name | Correct Image File | Visual Description |
-|-------------|-------------------|-------------------|
-| **Tangy Orange** | `/blue-berry.jpg` | Vibrant orange colored slush |
-| **Exotic Pineapple** | `/exotic-pineapple.jpg` | Yellow pineapple slush (unchanged) |
-| **Icy Cola** | `/sour-green-apple.jpg` | Dark brown/cola colored slush |
-| **Sweet Litchi** | `/sweet-litchi.jpg` | Pink/light colored slush (unchanged) |
-| **Sour Green Apple** | `/bubble-gum.jpg` | Bright green apple colored slush |
-| **Blue Berry** | `/exotic-pineapple.jpg` | Deep blue/purple berry slush |
-| **Bubble Gum** | `/icy-cola.jpg` | Purple/pink bubble gum slush |
-| **Simple Strawberry** | `/simple-strawberry.jpg` | Red/pink strawberry slush (unchanged) |
-| **Seven Rainbow** | `/seven-rainbow.jpg` | Multi-colored rainbow slush (unchanged) |
-| **Awesome Mango** | `/awesome-mango.jpg` | Yellow/orange mango slush (unchanged) |
-| **Power Blackberry** | `/tangy-orange.jpg` | Dark purple/blackberry slush |
+**✅ Updated: January 31, 2026 - Now showing 9 flavors (Sweet Litchi and Bubble Gum removed)**
+
+| Flavor Name | Correct Image File | Visual Description | Status |
+|-------------|-------------------|--------------------|--------|
+| **Tangy Orange** | `/blue-berry.jpg` | Vibrant orange colored slush | ✅ Active |
+| **Exotic Pineapple** | `/sweet-litchi.jpg` | Yellow pineapple slush | ✅ Active (Updated) |
+| **Icy Cola** | `/sour-green-apple.jpg` | Dark brown/cola colored slush | ✅ Active |
+| **Sour Green Apple** | `/bubble-gum.jpg` | Bright green apple colored slush | ✅ Active |
+| **Blue Berry** | `/exotic-pineapple.jpg` | Deep blue/purple berry slush | ✅ Active |
+| **Simple Strawberry** | `/simple-strawberry.jpg` | Red/pink strawberry slush | ✅ Active |
+| **Seven Rainbow** | `/seven-rainbow.jpg` | Multi-colored rainbow slush | ✅ Active |
+| **Awesome Mango** | `/awesome-mango.jpg` | Yellow/orange mango slush | ✅ Active |
+| **Power Blackberry** | `/tangy-orange.jpg` | Dark purple/blackberry slush | ✅ Active |
+| ~~**Sweet Litchi**~~ | ~~`/sweet-litchi.jpg`~~ | ~~Pink/light colored slush~~ | ❌ Removed |
+| ~~**Bubble Gum**~~ | ~~`/icy-cola.jpg`~~ | ~~Purple/pink bubble gum slush~~ | ❌ Removed |
 
 ---
 
 ## Files That Were NOT Changed
 
-These 5 flavors had correct images from the start:
+These 5 flavors had correct images from the start and remain active:
 
-1. ✅ **Exotic Pineapple** → `/exotic-pineapple.jpg`
-2. ✅ **Sweet Litchi** → `/sweet-litchi.jpg`
-3. ✅ **Simple Strawberry** → `/simple-strawberry.jpg`
-4. ✅ **Seven Rainbow** → `/seven-rainbow.jpg`
-5. ✅ **Awesome Mango** → `/awesome-mango.jpg`
+1. ✅ **Simple Strawberry** → `/simple-strawberry.jpg`
+2. ✅ **Seven Rainbow** → `/seven-rainbow.jpg`
+3. ✅ **Awesome Mango** → `/awesome-mango.jpg`
+
+## Files That Were Updated
+
+1. 🔄 **Exotic Pineapple** → Changed from `/exotic-pineapple.jpg` to `/sweet-litchi.jpg` (correct pineapple image)
+
+---
+
+## Flavors Removed (No Correct Images Available)
+
+These 2 flavors were removed from the Products section on January 31, 2026:
+
+1. ❌ **Sweet Litchi** - Removed (image file showed pineapple, not litchi)
+2. ❌ **Bubble Gum** - Removed (image file showed green apple, not bubble gum)
+
+They can be re-added once correct images are sourced.
 
 ---
 
@@ -87,21 +102,28 @@ curl -s https://london-slush.pages.dev/ | grep -o 'src="/[^"]*\.jpg"' | sort | u
 
 When viewing https://london-slush.pages.dev/#products:
 
+**✅ Active Flavors (9 total):**
+
 | Expected Color | Flavor Name |
 |---------------|-------------|
 | 🟠 Orange | Tangy Orange |
 | 🟡 Yellow | Exotic Pineapple, Awesome Mango |
 | 🟤 Brown/Cola | Icy Cola |
-| 🩷 Light Pink | Sweet Litchi |
 | 🟢 Green | Sour Green Apple |
 | 🔵 Blue | Blue Berry |
-| 🟣 Purple/Pink | Bubble Gum |
 | 🔴 Red/Pink | Simple Strawberry |
 | 🌈 Rainbow | Seven Rainbow |
 | 🟣 Dark Purple | Power Blackberry |
 
+**❌ Removed Flavors (2):**
+
+| Expected Color | Flavor Name | Reason |
+|---------------|-------------|--------|
+| ~~🩷 Light Pink~~ | ~~Sweet Litchi~~ | No correct image available |
+| ~~🟣 Purple/Pink~~ | ~~Bubble Gum~~ | No correct image available |
+
 ---
 
 **Document Created**: January 31, 2026  
-**Last Updated**: January 31, 2026  
-**Status**: ✅ Current
+**Last Updated**: January 31, 2026 (Updated for 9 flavors)  
+**Status**: ✅ Current (9 active flavors, 2 removed)
