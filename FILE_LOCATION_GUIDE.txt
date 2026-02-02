@@ -1,0 +1,87 @@
+╔══════════════════════════════════════════════════════════════╗
+║           📁 HOW TO FIND AND DOWNLOAD THE FILE              ║
+╔══════════════════════════════════════════════════════════════╗
+
+📍 FILE LOCATION:
+   /home/user/webapp/london-slush-cloudflare-upload.zip
+
+📦 FILE SIZE: 26.4 MB (27,638,734 bytes)
+
+✅ VERIFIED: Contains Google Sheets Worker integration
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔍 FINDING THE FILE IN YOUR INTERFACE:
+
+Option 1: File Browser/Explorer (Most Common)
+────────────────────────────────────────────────
+1. Look at the LEFT SIDEBAR of your interface
+2. Find an icon that looks like:
+   📁 "Files" 
+   📂 "Explorer"
+   🗂️  "File Browser"
+   
+3. Click it to open the file tree
+
+4. Navigate through:
+   home/ → user/ → webapp/
+   
+5. You should see:
+   london-slush-cloudflare-upload.zip (27M)
+   
+6. RIGHT-CLICK on the file
+   
+7. Select "Download" from the menu
+   (or look for a download icon/button)
+
+Option 2: Terminal/Command Interface
+────────────────────────────────────────────────
+If you have a terminal or command interface:
+
+You can verify the file exists:
+  ls -lh /home/user/webapp/london-slush-cloudflare-upload.zip
+
+Option 3: Direct File Path
+────────────────────────────────────────────────
+Some interfaces let you enter file paths directly:
+  
+Enter this path:
+  /home/user/webapp/london-slush-cloudflare-upload.zip
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 AFTER DOWNLOADING:
+
+1. Extract the ZIP file on your computer
+   
+2. You'll see these files:
+   _worker.js (159 KB) ← Important!
+   _routes.json
+   static/ (folder)
+   robots.txt
+   sitemap.xml
+   + all images and videos
+
+3. Keep all files together in one folder
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 THEN UPLOAD TO CLOUDFLARE:
+
+1. Go to: https://dash.cloudflare.com
+2. Workers & Pages → london-slush [Pages]
+3. Create deployment → Upload assets
+4. Select ALL extracted files
+5. Deploy!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ NEED HELP?
+
+Tell me:
+- "Can't find Files icon" → I'll help locate it
+- "Downloaded, what's next?" → I'll guide upload
+- "Uploaded, test now" → I'll run verification tests
+
+Ready when you are! 🎯
+

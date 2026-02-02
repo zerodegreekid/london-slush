@@ -2246,7 +2246,8 @@ app.get('/retail', (c) => {
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">Preferred Partnership Model *</label>
                 <select 
-                  name="partnership_model" 
+                  name="partnership_model"
+                  id="partnership-model-select"
                   required 
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition"
                 >
@@ -2255,6 +2256,31 @@ app.get('/retail', (c) => {
                   <option value="Individual Model">Individual Model (₹2.5L-₹5L, buy raw materials)</option>
                   <option value="Not Sure">Not Sure - Need Consultation</option>
                 </select>
+              </div>
+
+              {/* Raw Material Cost Field - Shows only for Individual Model */}
+              <div id="raw-material-cost-container" style="display: none;">
+                <label class="block text-gray-700 font-semibold mb-2">
+                  Raw Material Cost (Monthly) *
+                  <span class="text-sm text-gray-500 ml-2">(For Individual Model)</span>
+                </label>
+                <div class="relative">
+                  <input 
+                    type="text" 
+                    name="raw_material_cost"
+                    id="raw-material-cost-input"
+                    value="*****"
+                    readonly
+                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl bg-gray-50 text-gray-600 cursor-not-allowed"
+                    placeholder="Contact us for pricing details"
+                  />
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                    <i class="fas fa-info-circle text-purple-500"></i>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">
+                  Pricing details will be provided after consultation. Varies based on volume and location.
+                </p>
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
@@ -2284,10 +2310,14 @@ app.get('/retail', (c) => {
                 </div>
               </div>
 
-              <div>
-                <label class="block text-gray-700 font-semibold mb-2">Investment Budget *</label>
+              <div id="investment-budget-container">
+                <label class="block text-gray-700 font-semibold mb-2">
+                  Investment Budget *
+                  <span id="investment-note" class="text-sm text-gray-500 ml-2" style="display: none;">(Not applicable for Individual Model - see Raw Material Cost above)</span>
+                </label>
                 <select 
-                  name="investment_range" 
+                  name="investment_range"
+                  id="investment-range-select"
                   required 
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition"
                 >
@@ -2338,6 +2368,55 @@ app.get('/retail', (c) => {
                 We'll contact you within 24 hours with detailed pricing and ROI projections
               </p>
             </form>
+
+            {/* Form Conditional Logic - Retail */}
+            <script dangerouslySetInnerHTML={{__html: `
+              document.addEventListener('DOMContentLoaded', function() {
+                const partnershipModelSelect = document.getElementById('partnership-model-select');
+                const rawMaterialContainer = document.getElementById('raw-material-cost-container');
+                const investmentContainer = document.getElementById('investment-budget-container');
+                const investmentSelect = document.getElementById('investment-range-select');
+                const investmentNote = document.getElementById('investment-note');
+                
+                if (partnershipModelSelect && rawMaterialContainer && investmentContainer) {
+                  function togglePartnershipFields() {
+                    const selectedModel = partnershipModelSelect.value;
+                    
+                    if (selectedModel === 'Individual Model') {
+                      // Show raw material cost field for Individual Model
+                      rawMaterialContainer.style.display = 'block';
+                      
+                      // Clear and disable investment budget for Individual Model
+                      investmentSelect.value = '';
+                      investmentSelect.setAttribute('disabled', 'disabled');
+                      investmentSelect.removeAttribute('required');
+                      investmentSelect.style.backgroundColor = '#f3f4f6';
+                      investmentSelect.style.cursor = 'not-allowed';
+                      if (investmentNote) investmentNote.style.display = 'inline';
+                      
+                    } else {
+                      // Hide raw material cost field for other models
+                      rawMaterialContainer.style.display = 'none';
+                      
+                      // Enable investment budget for Partnership/Not Sure
+                      investmentSelect.removeAttribute('disabled');
+                      if (selectedModel === 'Partnership Model' || selectedModel === 'Not Sure') {
+                        investmentSelect.setAttribute('required', 'required');
+                      }
+                      investmentSelect.style.backgroundColor = '';
+                      investmentSelect.style.cursor = '';
+                      if (investmentNote) investmentNote.style.display = 'none';
+                    }
+                  }
+                  
+                  // Listen to changes
+                  partnershipModelSelect.addEventListener('change', togglePartnershipFields);
+                  
+                  // Initial check on page load
+                  togglePartnershipFields();
+                }
+              });
+            `}} />
           </div>
         </div>
       </section>
@@ -2807,7 +2886,8 @@ app.get('/distributor', (c) => {
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">Current Distribution Experience *</label>
                 <select 
-                  name="experience_years" 
+                  name="experience_years"
+                  id="experience-years-select"
                   required 
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition"
                 >
@@ -2820,10 +2900,11 @@ app.get('/distributor', (c) => {
                 </select>
               </div>
 
-              <div>
+              <div id="network-size-container">
                 <label class="block text-gray-700 font-semibold mb-2">Existing Network Size</label>
                 <select 
-                  name="outlet_count" 
+                  name="outlet_count"
+                  id="outlet-count-select"
                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition"
                 >
                   <option value="">Current outlets/clients you serve</option>
@@ -2874,6 +2955,36 @@ app.get('/distributor', (c) => {
                 Applications are reviewed by our partnerships team. High-quality applicants will be contacted within 48 hours.
               </p>
             </form>
+
+            {/* Form Conditional Logic - Distributor */}
+            <script dangerouslySetInnerHTML={{__html: `
+              document.addEventListener('DOMContentLoaded', function() {
+                const experienceSelect = document.getElementById('experience-years-select');
+                const networkContainer = document.getElementById('network-size-container');
+                const networkSelect = document.getElementById('outlet-count-select');
+                
+                if (experienceSelect && networkContainer && networkSelect) {
+                  // Initial state check
+                  function toggleNetworkField() {
+                    if (experienceSelect.value === '0') {
+                      // Hide network field for new distributors
+                      networkContainer.style.display = 'none';
+                      networkSelect.value = '';
+                      networkSelect.removeAttribute('required');
+                    } else if (experienceSelect.value !== '') {
+                      // Show network field for experienced distributors
+                      networkContainer.style.display = 'block';
+                    }
+                  }
+                  
+                  // Listen to changes
+                  experienceSelect.addEventListener('change', toggleNetworkField);
+                  
+                  // Initial check on page load
+                  toggleNetworkField();
+                }
+              });
+            `}} />
           </div>
         </div>
       </section>
