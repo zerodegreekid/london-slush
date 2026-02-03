@@ -2253,7 +2253,7 @@ app.get('/retail', (c) => {
                 >
                   <option value="">Select your preferred model</option>
                   <option value="Partnership Model">Partnership Model (₹0 upfront, profit sharing)</option>
-                  <option value="Individual Model">Individual Model (₹2.5L-₹5L, buy raw materials)</option>
+                  <option value="Individual Model">Individual Model (No investment - raw material cost for 3 months*)</option>
                   <option value="Not Sure">Not Sure - Need Consultation</option>
                 </select>
               </div>
@@ -2261,7 +2261,7 @@ app.get('/retail', (c) => {
               {/* Raw Material Cost Field - Shows only for Individual Model */}
               <div id="raw-material-cost-container" style="display: none;">
                 <label class="block text-gray-700 font-semibold mb-2">
-                  Raw Material Cost (Monthly) *
+                  Raw Material Cost for 3 Months *
                   <span class="text-sm text-gray-500 ml-2">(For Individual Model)</span>
                 </label>
                 <div class="relative">
@@ -2279,7 +2279,7 @@ app.get('/retail', (c) => {
                   </div>
                 </div>
                 <p class="text-xs text-gray-500 mt-1">
-                  Pricing details will be provided after consultation. Varies based on volume and location.
+                  * Pricing details will be provided after consultation. Varies based on volume and location.
                 </p>
               </div>
 
@@ -2310,23 +2310,7 @@ app.get('/retail', (c) => {
                 </div>
               </div>
 
-              <div id="investment-budget-container">
-                <label class="block text-gray-700 font-semibold mb-2">
-                  Investment Budget *
-                  <span id="investment-note" class="text-sm text-gray-500 ml-2" style="display: none;">(Not applicable for Individual Model - see Raw Material Cost above)</span>
-                </label>
-                <select 
-                  name="investment_range"
-                  id="investment-range-select"
-                  required 
-                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition"
-                >
-                  <option value="">Select your budget</option>
-                  <option value="2.5L-3L">₹2.5L - ₹3L (Single machine)</option>
-                  <option value="3L-5L">₹3L - ₹5L (Premium setup)</option>
-                  <option value="5L+">₹5L+ (Multiple machines)</option>
-                </select>
-              </div>
+
 
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">When do you want to start? *</label>
@@ -2374,38 +2358,17 @@ app.get('/retail', (c) => {
               document.addEventListener('DOMContentLoaded', function() {
                 const partnershipModelSelect = document.getElementById('partnership-model-select');
                 const rawMaterialContainer = document.getElementById('raw-material-cost-container');
-                const investmentContainer = document.getElementById('investment-budget-container');
-                const investmentSelect = document.getElementById('investment-range-select');
-                const investmentNote = document.getElementById('investment-note');
                 
-                if (partnershipModelSelect && rawMaterialContainer && investmentContainer) {
+                if (partnershipModelSelect && rawMaterialContainer) {
                   function togglePartnershipFields() {
                     const selectedModel = partnershipModelSelect.value;
                     
                     if (selectedModel === 'Individual Model') {
                       // Show raw material cost field for Individual Model
                       rawMaterialContainer.style.display = 'block';
-                      
-                      // Clear and disable investment budget for Individual Model
-                      investmentSelect.value = '';
-                      investmentSelect.setAttribute('disabled', 'disabled');
-                      investmentSelect.removeAttribute('required');
-                      investmentSelect.style.backgroundColor = '#f3f4f6';
-                      investmentSelect.style.cursor = 'not-allowed';
-                      if (investmentNote) investmentNote.style.display = 'inline';
-                      
                     } else {
                       // Hide raw material cost field for other models
                       rawMaterialContainer.style.display = 'none';
-                      
-                      // Enable investment budget for Partnership/Not Sure
-                      investmentSelect.removeAttribute('disabled');
-                      if (selectedModel === 'Partnership Model' || selectedModel === 'Not Sure') {
-                        investmentSelect.setAttribute('required', 'required');
-                      }
-                      investmentSelect.style.backgroundColor = '';
-                      investmentSelect.style.cursor = '';
-                      if (investmentNote) investmentNote.style.display = 'none';
                     }
                   }
                   
