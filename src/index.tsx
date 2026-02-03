@@ -1324,7 +1324,7 @@ app.get('/', (c) => {
             {/* Flavor 1 - Tangy Orange */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-orange-500">
               <div class="relative h-72 overflow-hidden">
-                <img src="/blue-berry.jpg" alt="Tangy Orange Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/tangy-orange.jpg" alt="Tangy Orange Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -1339,7 +1339,7 @@ app.get('/', (c) => {
             {/* Flavor 2 - Exotic Pineapple */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-yellow-500">
               <div class="relative h-72 overflow-hidden">
-                <img src="/sweet-litchi.jpg" alt="Exotic Pineapple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/exotic-pineapple.jpg" alt="Exotic Pineapple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -1354,7 +1354,7 @@ app.get('/', (c) => {
             {/* Flavor 3 - Icy Cola */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gray-700">
               <div class="relative h-72 overflow-hidden">
-                <img src="/sour-green-apple.jpg" alt="Icy Cola Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/icy-cola.jpg" alt="Icy Cola Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -1370,7 +1370,7 @@ app.get('/', (c) => {
             {/* Flavor 5 - Sour Green Apple */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-green-500">
               <div class="relative h-72 overflow-hidden">
-                <img src="/bubble-gum.jpg" alt="Sour Green Apple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/sour-green-apple.jpg" alt="Sour Green Apple Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -1385,7 +1385,7 @@ app.get('/', (c) => {
             {/* Flavor 6 - Blue Berry */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-blue-500">
               <div class="relative h-72 overflow-hidden">
-                <img src="/exotic-pineapple.jpg" alt="Blue Berry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/blue-berry.jpg" alt="Blue Berry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
@@ -1446,7 +1446,7 @@ app.get('/', (c) => {
             {/* Flavor 11 - Power Blackberry */}
             <div class="group bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-purple-700">
               <div class="relative h-72 overflow-hidden">
-                <img src="/tangy-orange.jpg" alt="Power Blackberry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/power-blackberry.jpg" alt="Power Blackberry Slush" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
               </div>
               <div class="p-6">
