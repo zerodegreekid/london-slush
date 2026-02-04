@@ -242,8 +242,10 @@ app.post('/api/submit-retail', async (c) => {
     const formData = await c.req.parseBody()
     const { DB } = c.env
 
-    // Insert lead into database
-    const result = await DB.prepare(`
+    // Insert lead into database (if DB is available)
+    if (DB) {
+      try {
+        await DB.prepare(`
       INSERT INTO leads (
         name, phone, email, city, investment_range, timeline,
         current_business, outlet_count, notes, business_type, source_page, created_at
@@ -261,6 +263,13 @@ app.post('/api/submit-retail', async (c) => {
       formData.business_type,
       formData.source_page
     ).run()
+      } catch (dbError) {
+        console.error('Database error (non-critical):', dbError)
+        // Continue with email sending even if DB fails
+      }
+    } else {
+      console.warn('Database not configured - lead will be sent via email only')
+    }
 
     // Send email notification to both addresses
     const emailSubject = `🔔 New Retail Lead: ${formData.name}`
@@ -1984,32 +1993,33 @@ app.get('/retail', (c) => {
                 
                 <div class="p-8">
                   <div class="text-center mb-6">
-                    <div class="text-5xl font-bold text-blue-600 mb-2">₹2.5L - ₹5L</div>
-                    <p class="text-lg font-semibold text-gray-800">Machine Investment</p>
+                    <div class="text-5xl font-bold text-blue-600 mb-2">₹0</div>
+                    <p class="text-lg font-semibold text-gray-800">No Upfront Investment</p>
+                    <p class="text-sm text-gray-600 mt-2">Only raw material cost for 3 months*</p>
                   </div>
                   
                   <div class="space-y-4 mb-8">
                     <div class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
                       <div>
-                        <p class="font-semibold text-gray-800">Own the Machine</p>
-                        <p class="text-sm text-gray-600">Full ownership after payment</p>
+                        <p class="font-semibold text-gray-800">Zero Upfront Cost</p>
+                        <p class="text-sm text-gray-600">No machine investment required</p>
                       </div>
                     </div>
                     
                     <div class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
                       <div>
-                        <p class="font-semibold text-gray-800">Buy Raw Materials</p>
-                        <p class="text-sm text-gray-600">Purchase syrups & supplies monthly</p>
+                        <p class="font-semibold text-gray-800">Pay for Raw Materials Only</p>
+                        <p class="text-sm text-gray-600">3-month supply cost (pricing on consultation)</p>
                       </div>
                     </div>
                     
                     <div class="flex items-start space-x-3">
                       <i class="fas fa-check-circle text-blue-500 text-2xl mt-1"></i>
                       <div>
-                        <p class="font-semibold text-gray-800">3-Month Lookout Period</p>
-                        <p class="text-sm text-gray-600">Trial period to assess viability</p>
+                        <p class="font-semibold text-gray-800">3-Month Trial Period</p>
+                        <p class="text-sm text-gray-600">Test viability with minimal commitment</p>
                       </div>
                     </div>
                     
@@ -2033,10 +2043,10 @@ app.get('/retail', (c) => {
                   <div class="bg-blue-50 rounded-2xl p-6 mb-6">
                     <h4 class="font-bold text-gray-800 mb-3">How It Works:</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                      <li>• Purchase machine upfront</li>
-                      <li>• Buy syrups from us monthly</li>
-                      <li>• 3-month trial to evaluate</li>
-                      <li>• 100% profits are yours</li>
+                      <li>• No machine investment needed</li>
+                      <li>• Pay only for 3-month raw material supply</li>
+                      <li>• Trial period to assess business fit</li>
+                      <li>• Full control & 100% profits</li>
                     </ul>
                   </div>
                   
