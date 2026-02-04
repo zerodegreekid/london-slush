@@ -2083,31 +2083,34 @@ app.get('/retail', (c) => {
           <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
               <i class="fas fa-calculator text-purple-600 mr-3"></i>
-              Revenue Projection (Individual Model)
+              Revenue & Cost Projection (Individual Model)
             </h2>
 
             <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
               <div class="grid md:grid-cols-2 gap-8 mb-8">
                 <div class="bg-purple-50 rounded-2xl p-6">
-                  <h3 class="text-xl font-bold text-gray-800 mb-4">Investment Breakdown</h3>
+                  <h3 class="text-xl font-bold text-gray-800 mb-4">Raw Material Cost Breakdown</h3>
                   <div class="space-y-3">
                     <div class="flex justify-between">
-                      <span class="text-gray-700">London Slush Machine (2-bowl)</span>
-                      <span class="font-semibold">₹2,50,000</span>
+                      <span class="text-gray-700">3-Month Syrup Supply*</span>
+                      <span class="font-semibold">Contact for pricing</span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-700">Installation & Training</span>
-                      <span class="font-semibold">₹25,000</span>
+                      <span class="text-gray-700">Cups & Straws (consumables)</span>
+                      <span class="font-semibold">Included</span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-700">Initial Inventory</span>
-                      <span class="font-semibold">₹25,000</span>
+                      <span class="text-gray-700">Machine Setup Fee</span>
+                      <span class="font-semibold">₹0</span>
                     </div>
                     <div class="flex justify-between border-t-2 border-gray-300 pt-3 text-lg">
-                      <span class="font-bold">Total Investment</span>
-                      <span class="font-bold text-purple-600">₹3,00,000</span>
+                      <span class="font-bold">Total Upfront</span>
+                      <span class="font-bold text-purple-600">Raw Materials Only*</span>
                     </div>
                   </div>
+                  <p class="text-xs text-gray-500 mt-4">
+                    * Pricing varies by location and volume. Contact us for detailed quote.
+                  </p>
                 </div>
 
                 <div class="bg-green-50 rounded-2xl p-6">
@@ -2126,8 +2129,8 @@ app.get('/retail', (c) => {
                       <span class="font-semibold">₹39,000</span>
                     </div>
                     <div class="flex justify-between border-t-2 border-gray-300 pt-3 text-lg">
-                      <span class="font-bold">ROI Timeline</span>
-                      <span class="font-bold text-green-600">8-10 months</span>
+                      <span class="font-bold">Break-even</span>
+                      <span class="font-bold text-green-600">Month 1</span>
                     </div>
                   </div>
                 </div>
@@ -2137,10 +2140,11 @@ app.get('/retail', (c) => {
                 <div class="flex items-start space-x-4">
                   <i class="fas fa-lightbulb text-yellow-500 text-3xl"></i>
                   <div>
-                    <h4 class="font-bold text-gray-800 mb-2">Peak Season Advantage</h4>
+                    <h4 class="font-bold text-gray-800 mb-2">Individual Model Benefits</h4>
                     <p class="text-gray-700">
-                      During summer months (March-July), average sales increase by 60-80%. 
-                      Many partners recover their entire investment in the first peak season!
+                      With ZERO machine investment, you start earning profits from Day 1! 
+                      Pay only for raw materials (3-month supply) and keep 100% of the profits. 
+                      During peak season (March-July), sales can increase by 60-80%.
                     </p>
                   </div>
                 </div>
