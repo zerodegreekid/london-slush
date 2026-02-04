@@ -1807,6 +1807,259 @@ app.get('/', (c) => {
           </div>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-6 shadow-2xl z-50 border-t-4 border-brand-red">
+        <div class="container mx-auto max-w-6xl">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-start gap-4 flex-1">
+              <i class="fas fa-cookie-bite text-4xl text-yellow-400"></i>
+              <div>
+                <h3 class="text-lg font-bold mb-2">We Value Your Privacy 🍪</h3>
+                <p class="text-sm text-gray-300">
+                  We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
+                  By clicking "Accept All", you consent to our use of cookies. 
+                  <a href="/privacy-policy" class="text-brand-red hover:underline">Learn more</a>
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-3 flex-shrink-0">
+              <button id="cookie-settings-btn" class="px-4 py-2 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition font-semibold text-sm">
+                <i class="fas fa-cog mr-2"></i>Settings
+              </button>
+              <button id="cookie-accept-btn" class="px-6 py-2 bg-brand-red text-white rounded-lg hover:bg-red-700 transition font-semibold text-sm">
+                <i class="fas fa-check mr-2"></i>Accept All
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Cookie Settings Modal */}
+      <div id="cookie-settings-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-bold text-gray-800">
+                <i class="fas fa-cookie-bite text-brand-red mr-2"></i>
+                Cookie Settings
+              </h2>
+              <button id="cookie-modal-close" class="text-gray-500 hover:text-gray-700 transition">
+                <i class="fas fa-times text-2xl"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="p-6 space-y-6">
+            {/* Essential Cookies */}
+            <div class="border-b border-gray-200 pb-6">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                  <h3 class="text-lg font-bold text-gray-800">Essential Cookies</h3>
+                </div>
+                <div class="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-semibold rounded-full">
+                  Always Active
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 pl-8">
+                Required for the website to function properly. These cookies enable core functionality such as security, 
+                network management, and accessibility. Cannot be disabled.
+              </p>
+            </div>
+
+            {/* Analytics Cookies */}
+            <div class="border-b border-gray-200 pb-6">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                  <h3 class="text-lg font-bold text-gray-800">Analytics Cookies</h3>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="cookie-analytics" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-red"></div>
+                </label>
+              </div>
+              <p class="text-sm text-gray-600 pl-8">
+                Help us understand how visitors interact with our website. We use this data to improve your experience.
+              </p>
+            </div>
+
+            {/* Marketing Cookies */}
+            <div class="pb-6">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-bullhorn text-purple-600 text-xl"></i>
+                  <h3 class="text-lg font-bold text-gray-800">Marketing Cookies</h3>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="cookie-marketing" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-red"></div>
+                </label>
+              </div>
+              <p class="text-sm text-gray-600 pl-8">
+                Used to deliver personalized advertisements and track campaign effectiveness across different platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 bg-gray-50 border-t border-gray-200 flex gap-3 justify-end">
+            <button id="cookie-reject-all" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition font-semibold">
+              Reject All
+            </button>
+            <button id="cookie-save-preferences" class="px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-red-700 transition font-semibold">
+              Save Preferences
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Cookie Management JavaScript */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // Cookie utility functions
+        function setCookie(name, value, days) {
+          const expires = new Date();
+          expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+          document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
+        }
+
+        function getCookie(name) {
+          const nameEQ = name + '=';
+          const ca = document.cookie.split(';');
+          for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+          }
+          return null;
+        }
+
+        function deleteCookie(name) {
+          document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+        }
+
+        // Initialize cookie consent
+        document.addEventListener('DOMContentLoaded', function() {
+          const banner = document.getElementById('cookie-banner');
+          const modal = document.getElementById('cookie-settings-modal');
+          const acceptBtn = document.getElementById('cookie-accept-btn');
+          const settingsBtn = document.getElementById('cookie-settings-btn');
+          const modalCloseBtn = document.getElementById('cookie-modal-close');
+          const rejectBtn = document.getElementById('cookie-reject-all');
+          const saveBtn = document.getElementById('cookie-save-preferences');
+          const analyticsCheckbox = document.getElementById('cookie-analytics');
+          const marketingCheckbox = document.getElementById('cookie-marketing');
+
+          // Check if user has already consented
+          const cookieConsent = getCookie('london_slush_cookie_consent');
+          
+          if (!cookieConsent) {
+            // Show banner after 1 second
+            setTimeout(() => {
+              banner.classList.remove('hidden');
+            }, 1000);
+          } else {
+            // Load existing preferences
+            const preferences = JSON.parse(cookieConsent);
+            if (preferences.analytics) {
+              loadAnalytics();
+            }
+            if (preferences.marketing) {
+              loadMarketing();
+            }
+          }
+
+          // Accept all cookies
+          acceptBtn.addEventListener('click', function() {
+            const preferences = {
+              essential: true,
+              analytics: true,
+              marketing: true,
+              timestamp: new Date().toISOString()
+            };
+            setCookie('london_slush_cookie_consent', JSON.stringify(preferences), 365);
+            banner.classList.add('hidden');
+            loadAnalytics();
+            loadMarketing();
+            console.log('✅ All cookies accepted');
+          });
+
+          // Open settings modal
+          settingsBtn.addEventListener('click', function() {
+            modal.classList.remove('hidden');
+          });
+
+          // Close modal
+          modalCloseBtn.addEventListener('click', function() {
+            modal.classList.add('hidden');
+          });
+
+          // Reject all cookies
+          rejectBtn.addEventListener('click', function() {
+            const preferences = {
+              essential: true,
+              analytics: false,
+              marketing: false,
+              timestamp: new Date().toISOString()
+            };
+            setCookie('london_slush_cookie_consent', JSON.stringify(preferences), 365);
+            banner.classList.add('hidden');
+            modal.classList.add('hidden');
+            console.log('❌ Non-essential cookies rejected');
+          });
+
+          // Save preferences
+          saveBtn.addEventListener('click', function() {
+            const preferences = {
+              essential: true,
+              analytics: analyticsCheckbox.checked,
+              marketing: marketingCheckbox.checked,
+              timestamp: new Date().toISOString()
+            };
+            setCookie('london_slush_cookie_consent', JSON.stringify(preferences), 365);
+            banner.classList.add('hidden');
+            modal.classList.add('hidden');
+            
+            if (preferences.analytics) {
+              loadAnalytics();
+            }
+            if (preferences.marketing) {
+              loadMarketing();
+            }
+            console.log('✅ Cookie preferences saved:', preferences);
+          });
+
+          // Load analytics scripts
+          function loadAnalytics() {
+            // Google Analytics (if you have GA4)
+            // window.dataLayer = window.dataLayer || [];
+            // function gtag(){dataLayer.push(arguments);}
+            // gtag('js', new Date());
+            // gtag('config', 'GA_MEASUREMENT_ID');
+            
+            console.log('📊 Analytics cookies loaded');
+            
+            // Track page view
+            setCookie('london_slush_analytics', 'enabled', 365);
+          }
+
+          // Load marketing scripts
+          function loadMarketing() {
+            // Facebook Pixel, Google Ads, etc.
+            console.log('📢 Marketing cookies loaded');
+            
+            // Track marketing consent
+            setCookie('london_slush_marketing', 'enabled', 365);
+          }
+
+          // Close modal when clicking outside
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+              modal.classList.add('hidden');
+            }
+          });
+        });
+      `}} />
     </>,
     { title: 'London Slush - Premium Franchise & Business Opportunities | Start Your Beverage Business' }
   )
