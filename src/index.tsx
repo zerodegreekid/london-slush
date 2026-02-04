@@ -2117,16 +2117,16 @@ app.get('/retail', (c) => {
                   <h3 class="text-xl font-bold text-gray-800 mb-4">Monthly Earnings (Est.)</h3>
                   <div class="space-y-3">
                     <div class="flex justify-between">
-                      <span class="text-gray-700">50 cups/day @ ₹40</span>
-                      <span class="font-semibold">₹60,000</span>
+                      <span class="text-gray-700">50 cups/day @ ₹75</span>
+                      <span class="font-semibold">₹1,12,500</span>
                     </div>
                     <div class="flex justify-between">
                       <span class="text-gray-700">Cost per cup (syrup + ops)</span>
-                      <span class="font-semibold">₹12</span>
+                      <span class="font-semibold">₹30</span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-700">Monthly profit (65% margin)</span>
-                      <span class="font-semibold">₹39,000</span>
+                      <span class="text-gray-700">Monthly profit (60% margin)</span>
+                      <span class="font-semibold">₹67,500</span>
                     </div>
                     <div class="flex justify-between border-t-2 border-gray-300 pt-3 text-lg">
                       <span class="font-bold">Break-even</span>
