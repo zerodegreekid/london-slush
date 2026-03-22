@@ -1,1 +1,39 @@
-{"version":1,"include":["/*"],"exclude":["/dance-with-slush.jpg","/fabulous-juicy-slush.jpg","/fusion-raspberry-green.jpg","/hero-video.mp4","/icy-coca.jpg","/logo-circle.png","/logo-simple.png","/logo-text.png","/logo.png","/logo.psd","/logo.svg","/promo-video.mp4","/rainbow-slush.jpg","/slush-blue-drinks.jpg","/slush-pink-drink.jpg","/slush-pink-grape.jpg","/slush-varieties.jpg","/static/*"]}
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/awesome-mango.jpg",
+    "/blue-berry.jpg",
+    "/bubble-gum.jpg",
+    "/dance-with-slush.jpg",
+    "/exotic-pineapple.jpg",
+    "/extra-berry-good.jpg",
+    "/fabulous-juicy-slush.jpg",
+    "/fusion-raspberry-green.jpg",
+    "/hero-video.mp4",
+    "/icy-coca.jpg",
+    "/icy-cola.jpg",
+    "/logo-circle.png",
+    "/logo-simple.png",
+    "/logo-text.png",
+    "/logo.png",
+    "/logo.psd",
+    "/logo.svg",
+    "/power-blackberry.jpg",
+    "/promo-video.mp4",
+    "/rainbow-slush.jpg",
+    "/seven-rainbow.jpg",
+    "/simple-strawberry.jpg",
+    "/slush-blue-drinks.jpg",
+    "/slush-machines.jpg",
+    "/slush-pink-drink.jpg",
+    "/slush-pink-grape.jpg",
+    "/slush-varieties.jpg",
+    "/sour-green-apple.jpg",
+    "/static/*",
+    "/sweet-litchi.jpg",
+    "/tangy-orange.jpg"
+  ]
+}
